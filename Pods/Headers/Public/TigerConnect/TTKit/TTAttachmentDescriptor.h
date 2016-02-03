@@ -1,1 +1,0 @@
-../../../../TigerConnect/TTKit.framework/Versions/A/Headers/TTAttachmentDescriptor.h
