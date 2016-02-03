@@ -13,11 +13,9 @@
 
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
-    #import <TTKit/TTKit.h>
-    #import "UIHelpers.h"
-    #import "TTConstants.h"
-    #import "UIView+Common.h"
+    #import "Constants.h"
     #import "UIColor+Common.h"
+    #import "UIView+Common.h"
 
 #endif
 

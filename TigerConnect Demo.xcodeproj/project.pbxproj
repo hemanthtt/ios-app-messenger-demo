@@ -1,0 +1,826 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3A01C1651C61307E00D54361 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C1641C61307E00D54361 /* main.m */; };
+		3A01C17E1C61307E00D54361 /* TigerConnect_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C17D1C61307E00D54361 /* TigerConnect_DemoTests.m */; };
+		3A01C1891C61307E00D54361 /* TigerConnect_DemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C1881C61307E00D54361 /* TigerConnect_DemoUITests.m */; };
+		3A01C1E81C61D64C00D54361 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C1E71C61D64C00D54361 /* AppDelegate.m */; };
+		3A01C1F61C61D67700D54361 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A01C1F51C61D67700D54361 /* Main.storyboard */; };
+		3A01C1F81C61D68100D54361 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A01C1F71C61D68100D54361 /* LaunchScreen.storyboard */; };
+		3A01C1FA1C61D68800D54361 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A01C1F91C61D68800D54361 /* Assets.xcassets */; };
+		3A01C1FC1C61D68F00D54361 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A01C1FB1C61D68F00D54361 /* Info.plist */; };
+		3A01C20C1C61D6B100D54361 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C2001C61D6B100D54361 /* Constants.m */; };
+		3A01C20D1C61D6B100D54361 /* DateHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C2021C61D6B100D54361 /* DateHelpers.m */; };
+		3A01C20E1C61D6B100D54361 /* MessageUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C2051C61D6B100D54361 /* MessageUtilities.m */; };
+		3A01C20F1C61D6B100D54361 /* UIColor+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C2071C61D6B100D54361 /* UIColor+Common.m */; };
+		3A01C2101C61D6B100D54361 /* UIHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C2091C61D6B100D54361 /* UIHelpers.m */; };
+		3A01C2111C61D6B100D54361 /* UIView+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C20B1C61D6B100D54361 /* UIView+Common.m */; };
+		3A01C21B1C61D6BA00D54361 /* ConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C2141C61D6BA00D54361 /* ConversationViewController.m */; };
+		3A01C21C1C61D6BA00D54361 /* InboxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C2161C61D6BA00D54361 /* InboxViewController.m */; };
+		3A01C21D1C61D6BA00D54361 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C2181C61D6BA00D54361 /* LoginViewController.m */; };
+		3A01C21E1C61D6BA00D54361 /* OrganizationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C21A1C61D6BA00D54361 /* OrganizationsViewController.m */; };
+		3A01C2291C61D6C200D54361 /* BadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C2211C61D6C200D54361 /* BadgeView.m */; };
+		3A01C22A1C61D6C200D54361 /* ConversationBackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C2231C61D6C200D54361 /* ConversationBackView.m */; };
+		3A01C22B1C61D6C200D54361 /* LoadMoreMessagesHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C2251C61D6C200D54361 /* LoadMoreMessagesHeaderView.m */; };
+		3A01C22C1C61D6C200D54361 /* LoadMoreMessagesHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A01C2261C61D6C200D54361 /* LoadMoreMessagesHeaderView.xib */; };
+		3A01C22D1C61D6C200D54361 /* OrganizationsBarButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C2281C61D6C200D54361 /* OrganizationsBarButtonView.m */; };
+		3A01C23D1C61D6CD00D54361 /* ConversationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C2301C61D6CD00D54361 /* ConversationCell.m */; };
+		3A01C23E1C61D6CD00D54361 /* ConversationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A01C2311C61D6CD00D54361 /* ConversationCell.xib */; };
+		3A01C23F1C61D6CD00D54361 /* IncomingMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C2331C61D6CD00D54361 /* IncomingMessageCell.m */; };
+		3A01C2401C61D6CD00D54361 /* IncomingMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A01C2341C61D6CD00D54361 /* IncomingMessageCell.xib */; };
+		3A01C2411C61D6CD00D54361 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C2361C61D6CD00D54361 /* MessageCell.m */; };
+		3A01C2421C61D6CD00D54361 /* OrganizationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C2381C61D6CD00D54361 /* OrganizationCell.m */; };
+		3A01C2431C61D6CD00D54361 /* OrganizationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A01C2391C61D6CD00D54361 /* OrganizationCell.xib */; };
+		3A01C2441C61D6CD00D54361 /* OutgoingMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C23B1C61D6CD00D54361 /* OutgoingMessageCell.m */; };
+		3A01C2451C61D6CD00D54361 /* OutgoingMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A01C23C1C61D6CD00D54361 /* OutgoingMessageCell.xib */; };
+		CE82055B08D04E5B059E9234 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3D65308212112D46C07A9D /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3A01C17A1C61307E00D54361 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A01C1581C61307E00D54361 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3A01C15F1C61307E00D54361;
+			remoteInfo = "TigerConnect Demo";
+		};
+		3A01C1851C61307E00D54361 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A01C1581C61307E00D54361 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3A01C15F1C61307E00D54361;
+			remoteInfo = "TigerConnect Demo";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0ACBDB82E3D7F543E1BB9C5E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		1A86BC512114315DEF756D12 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		3A01C1601C61307E00D54361 /* TigerConnect Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TigerConnect Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A01C1641C61307E00D54361 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3A01C1791C61307E00D54361 /* TigerConnect DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TigerConnect DemoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A01C17D1C61307E00D54361 /* TigerConnect_DemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TigerConnect_DemoTests.m; sourceTree = "<group>"; };
+		3A01C17F1C61307E00D54361 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A01C1841C61307E00D54361 /* TigerConnect DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TigerConnect DemoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A01C1881C61307E00D54361 /* TigerConnect_DemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TigerConnect_DemoUITests.m; sourceTree = "<group>"; };
+		3A01C18A1C61307E00D54361 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A01C1E61C61D64C00D54361 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = SOURCE_ROOT; };
+		3A01C1E71C61D64C00D54361 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = SOURCE_ROOT; };
+		3A01C1F51C61D67700D54361 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		3A01C1F71C61D68100D54361 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3A01C1F91C61D68800D54361 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3A01C1FB1C61D68F00D54361 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A01C1FD1C61D69F00D54361 /* TigerConnect.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TigerConnect.pch; sourceTree = "<group>"; };
+		3A01C1FF1C61D6B100D54361 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		3A01C2001C61D6B100D54361 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		3A01C2011C61D6B100D54361 /* DateHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateHelpers.h; sourceTree = "<group>"; };
+		3A01C2021C61D6B100D54361 /* DateHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateHelpers.m; sourceTree = "<group>"; };
+		3A01C2031C61D6B100D54361 /* MessageLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageLoading.h; sourceTree = "<group>"; };
+		3A01C2041C61D6B100D54361 /* MessageUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageUtilities.h; sourceTree = "<group>"; };
+		3A01C2051C61D6B100D54361 /* MessageUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageUtilities.m; sourceTree = "<group>"; };
+		3A01C2061C61D6B100D54361 /* UIColor+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Common.h"; sourceTree = "<group>"; };
+		3A01C2071C61D6B100D54361 /* UIColor+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Common.m"; sourceTree = "<group>"; };
+		3A01C2081C61D6B100D54361 /* UIHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIHelpers.h; sourceTree = "<group>"; };
+		3A01C2091C61D6B100D54361 /* UIHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIHelpers.m; sourceTree = "<group>"; };
+		3A01C20A1C61D6B100D54361 /* UIView+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Common.h"; sourceTree = "<group>"; };
+		3A01C20B1C61D6B100D54361 /* UIView+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Common.m"; sourceTree = "<group>"; };
+		3A01C2131C61D6BA00D54361 /* ConversationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationViewController.h; sourceTree = "<group>"; };
+		3A01C2141C61D6BA00D54361 /* ConversationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationViewController.m; sourceTree = "<group>"; };
+		3A01C2151C61D6BA00D54361 /* InboxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InboxViewController.h; sourceTree = "<group>"; };
+		3A01C2161C61D6BA00D54361 /* InboxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InboxViewController.m; sourceTree = "<group>"; };
+		3A01C2171C61D6BA00D54361 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		3A01C2181C61D6BA00D54361 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		3A01C2191C61D6BA00D54361 /* OrganizationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrganizationsViewController.h; sourceTree = "<group>"; };
+		3A01C21A1C61D6BA00D54361 /* OrganizationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrganizationsViewController.m; sourceTree = "<group>"; };
+		3A01C2201C61D6C200D54361 /* BadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadgeView.h; sourceTree = "<group>"; };
+		3A01C2211C61D6C200D54361 /* BadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadgeView.m; sourceTree = "<group>"; };
+		3A01C2221C61D6C200D54361 /* ConversationBackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationBackView.h; sourceTree = "<group>"; };
+		3A01C2231C61D6C200D54361 /* ConversationBackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationBackView.m; sourceTree = "<group>"; };
+		3A01C2241C61D6C200D54361 /* LoadMoreMessagesHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadMoreMessagesHeaderView.h; sourceTree = "<group>"; };
+		3A01C2251C61D6C200D54361 /* LoadMoreMessagesHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadMoreMessagesHeaderView.m; sourceTree = "<group>"; };
+		3A01C2261C61D6C200D54361 /* LoadMoreMessagesHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadMoreMessagesHeaderView.xib; sourceTree = "<group>"; };
+		3A01C2271C61D6C200D54361 /* OrganizationsBarButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrganizationsBarButtonView.h; sourceTree = "<group>"; };
+		3A01C2281C61D6C200D54361 /* OrganizationsBarButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrganizationsBarButtonView.m; sourceTree = "<group>"; };
+		3A01C22F1C61D6CD00D54361 /* ConversationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationCell.h; sourceTree = "<group>"; };
+		3A01C2301C61D6CD00D54361 /* ConversationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationCell.m; sourceTree = "<group>"; };
+		3A01C2311C61D6CD00D54361 /* ConversationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConversationCell.xib; sourceTree = "<group>"; };
+		3A01C2321C61D6CD00D54361 /* IncomingMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IncomingMessageCell.h; sourceTree = "<group>"; };
+		3A01C2331C61D6CD00D54361 /* IncomingMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IncomingMessageCell.m; sourceTree = "<group>"; };
+		3A01C2341C61D6CD00D54361 /* IncomingMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IncomingMessageCell.xib; sourceTree = "<group>"; };
+		3A01C2351C61D6CD00D54361 /* MessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
+		3A01C2361C61D6CD00D54361 /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
+		3A01C2371C61D6CD00D54361 /* OrganizationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrganizationCell.h; sourceTree = "<group>"; };
+		3A01C2381C61D6CD00D54361 /* OrganizationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrganizationCell.m; sourceTree = "<group>"; };
+		3A01C2391C61D6CD00D54361 /* OrganizationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrganizationCell.xib; sourceTree = "<group>"; };
+		3A01C23A1C61D6CD00D54361 /* OutgoingMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutgoingMessageCell.h; sourceTree = "<group>"; };
+		3A01C23B1C61D6CD00D54361 /* OutgoingMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutgoingMessageCell.m; sourceTree = "<group>"; };
+		3A01C23C1C61D6CD00D54361 /* OutgoingMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OutgoingMessageCell.xib; sourceTree = "<group>"; };
+		9B3D65308212112D46C07A9D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3A01C15D1C61307E00D54361 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE82055B08D04E5B059E9234 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A01C1761C61307E00D54361 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A01C1811C61307E00D54361 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3A01C1571C61307E00D54361 = {
+			isa = PBXGroup;
+			children = (
+				3A01C1621C61307E00D54361 /* TigerConnect Demo */,
+				3A01C17C1C61307E00D54361 /* TigerConnect DemoTests */,
+				3A01C1871C61307E00D54361 /* TigerConnect DemoUITests */,
+				3A01C1611C61307E00D54361 /* Products */,
+				40AF792FACAB12BF67306722 /* Pods */,
+				92C4ED489C3B21AC8311E26E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3A01C1611C61307E00D54361 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3A01C1601C61307E00D54361 /* TigerConnect Demo.app */,
+				3A01C1791C61307E00D54361 /* TigerConnect DemoTests.xctest */,
+				3A01C1841C61307E00D54361 /* TigerConnect DemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3A01C1621C61307E00D54361 /* TigerConnect Demo */ = {
+			isa = PBXGroup;
+			children = (
+				3A01C22E1C61D6CD00D54361 /* Cells */,
+				3A01C21F1C61D6C200D54361 /* Views */,
+				3A01C2121C61D6BA00D54361 /* View Controllers */,
+				3A01C1FE1C61D6B100D54361 /* Utilities */,
+				3A01C1F51C61D67700D54361 /* Main.storyboard */,
+				3A01C1F71C61D68100D54361 /* LaunchScreen.storyboard */,
+				3A01C1E61C61D64C00D54361 /* AppDelegate.h */,
+				3A01C1E71C61D64C00D54361 /* AppDelegate.m */,
+				3A01C1F91C61D68800D54361 /* Assets.xcassets */,
+				3A01C1FB1C61D68F00D54361 /* Info.plist */,
+				3A01C1FD1C61D69F00D54361 /* TigerConnect.pch */,
+				3A01C1631C61307E00D54361 /* Supporting Files */,
+			);
+			path = "TigerConnect Demo";
+			sourceTree = "<group>";
+		};
+		3A01C1631C61307E00D54361 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3A01C1641C61307E00D54361 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3A01C17C1C61307E00D54361 /* TigerConnect DemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				3A01C17D1C61307E00D54361 /* TigerConnect_DemoTests.m */,
+				3A01C17F1C61307E00D54361 /* Info.plist */,
+			);
+			path = "TigerConnect DemoTests";
+			sourceTree = "<group>";
+		};
+		3A01C1871C61307E00D54361 /* TigerConnect DemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3A01C1881C61307E00D54361 /* TigerConnect_DemoUITests.m */,
+				3A01C18A1C61307E00D54361 /* Info.plist */,
+			);
+			path = "TigerConnect DemoUITests";
+			sourceTree = "<group>";
+		};
+		3A01C1FE1C61D6B100D54361 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				3A01C1FF1C61D6B100D54361 /* Constants.h */,
+				3A01C2001C61D6B100D54361 /* Constants.m */,
+				3A01C2011C61D6B100D54361 /* DateHelpers.h */,
+				3A01C2021C61D6B100D54361 /* DateHelpers.m */,
+				3A01C2031C61D6B100D54361 /* MessageLoading.h */,
+				3A01C2041C61D6B100D54361 /* MessageUtilities.h */,
+				3A01C2051C61D6B100D54361 /* MessageUtilities.m */,
+				3A01C2061C61D6B100D54361 /* UIColor+Common.h */,
+				3A01C2071C61D6B100D54361 /* UIColor+Common.m */,
+				3A01C2081C61D6B100D54361 /* UIHelpers.h */,
+				3A01C2091C61D6B100D54361 /* UIHelpers.m */,
+				3A01C20A1C61D6B100D54361 /* UIView+Common.h */,
+				3A01C20B1C61D6B100D54361 /* UIView+Common.m */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		3A01C2121C61D6BA00D54361 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3A01C2131C61D6BA00D54361 /* ConversationViewController.h */,
+				3A01C2141C61D6BA00D54361 /* ConversationViewController.m */,
+				3A01C2151C61D6BA00D54361 /* InboxViewController.h */,
+				3A01C2161C61D6BA00D54361 /* InboxViewController.m */,
+				3A01C2171C61D6BA00D54361 /* LoginViewController.h */,
+				3A01C2181C61D6BA00D54361 /* LoginViewController.m */,
+				3A01C2191C61D6BA00D54361 /* OrganizationsViewController.h */,
+				3A01C21A1C61D6BA00D54361 /* OrganizationsViewController.m */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		3A01C21F1C61D6C200D54361 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3A01C2201C61D6C200D54361 /* BadgeView.h */,
+				3A01C2211C61D6C200D54361 /* BadgeView.m */,
+				3A01C2221C61D6C200D54361 /* ConversationBackView.h */,
+				3A01C2231C61D6C200D54361 /* ConversationBackView.m */,
+				3A01C2241C61D6C200D54361 /* LoadMoreMessagesHeaderView.h */,
+				3A01C2251C61D6C200D54361 /* LoadMoreMessagesHeaderView.m */,
+				3A01C2261C61D6C200D54361 /* LoadMoreMessagesHeaderView.xib */,
+				3A01C2271C61D6C200D54361 /* OrganizationsBarButtonView.h */,
+				3A01C2281C61D6C200D54361 /* OrganizationsBarButtonView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3A01C22E1C61D6CD00D54361 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3A01C22F1C61D6CD00D54361 /* ConversationCell.h */,
+				3A01C2301C61D6CD00D54361 /* ConversationCell.m */,
+				3A01C2311C61D6CD00D54361 /* ConversationCell.xib */,
+				3A01C2321C61D6CD00D54361 /* IncomingMessageCell.h */,
+				3A01C2331C61D6CD00D54361 /* IncomingMessageCell.m */,
+				3A01C2341C61D6CD00D54361 /* IncomingMessageCell.xib */,
+				3A01C2351C61D6CD00D54361 /* MessageCell.h */,
+				3A01C2361C61D6CD00D54361 /* MessageCell.m */,
+				3A01C2371C61D6CD00D54361 /* OrganizationCell.h */,
+				3A01C2381C61D6CD00D54361 /* OrganizationCell.m */,
+				3A01C2391C61D6CD00D54361 /* OrganizationCell.xib */,
+				3A01C23A1C61D6CD00D54361 /* OutgoingMessageCell.h */,
+				3A01C23B1C61D6CD00D54361 /* OutgoingMessageCell.m */,
+				3A01C23C1C61D6CD00D54361 /* OutgoingMessageCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		40AF792FACAB12BF67306722 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1A86BC512114315DEF756D12 /* Pods.debug.xcconfig */,
+				0ACBDB82E3D7F543E1BB9C5E /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		92C4ED489C3B21AC8311E26E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9B3D65308212112D46C07A9D /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3A01C15F1C61307E00D54361 /* TigerConnect Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A01C18D1C61307E00D54361 /* Build configuration list for PBXNativeTarget "TigerConnect Demo" */;
+			buildPhases = (
+				D0141697386DEB02D34E7E47 /* Check Pods Manifest.lock */,
+				3A01C15C1C61307E00D54361 /* Sources */,
+				3A01C15D1C61307E00D54361 /* Frameworks */,
+				3A01C15E1C61307E00D54361 /* Resources */,
+				93440E05AC49CE9D24C9BB62 /* Embed Pods Frameworks */,
+				EA2486CDCB0D91C9119D277D /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TigerConnect Demo";
+			productName = "TigerConnect Demo";
+			productReference = 3A01C1601C61307E00D54361 /* TigerConnect Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3A01C1781C61307E00D54361 /* TigerConnect DemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A01C1901C61307E00D54361 /* Build configuration list for PBXNativeTarget "TigerConnect DemoTests" */;
+			buildPhases = (
+				3A01C1751C61307E00D54361 /* Sources */,
+				3A01C1761C61307E00D54361 /* Frameworks */,
+				3A01C1771C61307E00D54361 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3A01C17B1C61307E00D54361 /* PBXTargetDependency */,
+			);
+			name = "TigerConnect DemoTests";
+			productName = "TigerConnect DemoTests";
+			productReference = 3A01C1791C61307E00D54361 /* TigerConnect DemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3A01C1831C61307E00D54361 /* TigerConnect DemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A01C1931C61307E00D54361 /* Build configuration list for PBXNativeTarget "TigerConnect DemoUITests" */;
+			buildPhases = (
+				3A01C1801C61307E00D54361 /* Sources */,
+				3A01C1811C61307E00D54361 /* Frameworks */,
+				3A01C1821C61307E00D54361 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3A01C1861C61307E00D54361 /* PBXTargetDependency */,
+			);
+			name = "TigerConnect DemoUITests";
+			productName = "TigerConnect DemoUITests";
+			productReference = 3A01C1841C61307E00D54361 /* TigerConnect DemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3A01C1581C61307E00D54361 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = TigerText;
+				TargetAttributes = {
+					3A01C15F1C61307E00D54361 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					3A01C1781C61307E00D54361 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 3A01C15F1C61307E00D54361;
+					};
+					3A01C1831C61307E00D54361 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 3A01C15F1C61307E00D54361;
+					};
+				};
+			};
+			buildConfigurationList = 3A01C15B1C61307E00D54361 /* Build configuration list for PBXProject "TigerConnect Demo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3A01C1571C61307E00D54361;
+			productRefGroup = 3A01C1611C61307E00D54361 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3A01C15F1C61307E00D54361 /* TigerConnect Demo */,
+				3A01C1781C61307E00D54361 /* TigerConnect DemoTests */,
+				3A01C1831C61307E00D54361 /* TigerConnect DemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3A01C15E1C61307E00D54361 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A01C23E1C61D6CD00D54361 /* ConversationCell.xib in Resources */,
+				3A01C2401C61D6CD00D54361 /* IncomingMessageCell.xib in Resources */,
+				3A01C2431C61D6CD00D54361 /* OrganizationCell.xib in Resources */,
+				3A01C22C1C61D6C200D54361 /* LoadMoreMessagesHeaderView.xib in Resources */,
+				3A01C2451C61D6CD00D54361 /* OutgoingMessageCell.xib in Resources */,
+				3A01C1F81C61D68100D54361 /* LaunchScreen.storyboard in Resources */,
+				3A01C1FC1C61D68F00D54361 /* Info.plist in Resources */,
+				3A01C1FA1C61D68800D54361 /* Assets.xcassets in Resources */,
+				3A01C1F61C61D67700D54361 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A01C1771C61307E00D54361 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A01C1821C61307E00D54361 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		93440E05AC49CE9D24C9BB62 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0141697386DEB02D34E7E47 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EA2486CDCB0D91C9119D277D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3A01C15C1C61307E00D54361 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A01C20C1C61D6B100D54361 /* Constants.m in Sources */,
+				3A01C23D1C61D6CD00D54361 /* ConversationCell.m in Sources */,
+				3A01C2291C61D6C200D54361 /* BadgeView.m in Sources */,
+				3A01C21D1C61D6BA00D54361 /* LoginViewController.m in Sources */,
+				3A01C22B1C61D6C200D54361 /* LoadMoreMessagesHeaderView.m in Sources */,
+				3A01C2111C61D6B100D54361 /* UIView+Common.m in Sources */,
+				3A01C20E1C61D6B100D54361 /* MessageUtilities.m in Sources */,
+				3A01C21C1C61D6BA00D54361 /* InboxViewController.m in Sources */,
+				3A01C21B1C61D6BA00D54361 /* ConversationViewController.m in Sources */,
+				3A01C22D1C61D6C200D54361 /* OrganizationsBarButtonView.m in Sources */,
+				3A01C2101C61D6B100D54361 /* UIHelpers.m in Sources */,
+				3A01C1651C61307E00D54361 /* main.m in Sources */,
+				3A01C2441C61D6CD00D54361 /* OutgoingMessageCell.m in Sources */,
+				3A01C22A1C61D6C200D54361 /* ConversationBackView.m in Sources */,
+				3A01C2411C61D6CD00D54361 /* MessageCell.m in Sources */,
+				3A01C20D1C61D6B100D54361 /* DateHelpers.m in Sources */,
+				3A01C20F1C61D6B100D54361 /* UIColor+Common.m in Sources */,
+				3A01C21E1C61D6BA00D54361 /* OrganizationsViewController.m in Sources */,
+				3A01C1E81C61D64C00D54361 /* AppDelegate.m in Sources */,
+				3A01C2421C61D6CD00D54361 /* OrganizationCell.m in Sources */,
+				3A01C23F1C61D6CD00D54361 /* IncomingMessageCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A01C1751C61307E00D54361 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A01C17E1C61307E00D54361 /* TigerConnect_DemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A01C1801C61307E00D54361 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A01C1891C61307E00D54361 /* TigerConnect_DemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3A01C17B1C61307E00D54361 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3A01C15F1C61307E00D54361 /* TigerConnect Demo */;
+			targetProxy = 3A01C17A1C61307E00D54361 /* PBXContainerItemProxy */;
+		};
+		3A01C1861C61307E00D54361 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3A01C15F1C61307E00D54361 /* TigerConnect Demo */;
+			targetProxy = 3A01C1851C61307E00D54361 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3A01C18B1C61307E00D54361 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3A01C18C1C61307E00D54361 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3A01C18E1C61307E00D54361 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A86BC512114315DEF756D12 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "TigerConnect Demo/TigerConnect.pch";
+				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"AddressBook\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreData\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"TTKit\"",
+					"-framework",
+					"\"UIKit\"",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "tigerconnect.tigerconnect.demo.TigerConnect-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3A01C18F1C61307E00D54361 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0ACBDB82E3D7F543E1BB9C5E /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "TigerConnect Demo/TigerConnect.pch";
+				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"AddressBook\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreData\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"TTKit\"",
+					"-framework",
+					"\"UIKit\"",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "tigerconnect.tigerconnect.demo.TigerConnect-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		3A01C1911C61307E00D54361 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "TigerConnect DemoTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "tigerconnect.tigerconnect.demo.TigerConnect-DemoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TigerConnect Demo.app/TigerConnect Demo";
+			};
+			name = Debug;
+		};
+		3A01C1921C61307E00D54361 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "TigerConnect DemoTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "tigerconnect.tigerconnect.demo.TigerConnect-DemoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TigerConnect Demo.app/TigerConnect Demo";
+			};
+			name = Release;
+		};
+		3A01C1941C61307E00D54361 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "TigerConnect DemoUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "tigerconnect.tigerconnect.demo.TigerConnect-DemoUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "TigerConnect Demo";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		3A01C1951C61307E00D54361 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "TigerConnect DemoUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "tigerconnect.tigerconnect.demo.TigerConnect-DemoUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "TigerConnect Demo";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3A01C15B1C61307E00D54361 /* Build configuration list for PBXProject "TigerConnect Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A01C18B1C61307E00D54361 /* Debug */,
+				3A01C18C1C61307E00D54361 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A01C18D1C61307E00D54361 /* Build configuration list for PBXNativeTarget "TigerConnect Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A01C18E1C61307E00D54361 /* Debug */,
+				3A01C18F1C61307E00D54361 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A01C1901C61307E00D54361 /* Build configuration list for PBXNativeTarget "TigerConnect DemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A01C1911C61307E00D54361 /* Debug */,
+				3A01C1921C61307E00D54361 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A01C1931C61307E00D54361 /* Build configuration list for PBXNativeTarget "TigerConnect DemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A01C1941C61307E00D54361 /* Debug */,
+				3A01C1951C61307E00D54361 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3A01C1581C61307E00D54361 /* Project object */;
+}
