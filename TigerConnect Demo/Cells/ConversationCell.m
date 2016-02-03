@@ -63,21 +63,24 @@
 
 - (void)setUnreadBadge
 {
-    self.badgeData.updateUnreadCountBlock = nil;
-    self.badgeData = nil;
     self.badgeData = [[TTKit sharedInstance] badgeDataForConversationHash:_item.conversationHash];
-    [self updateUnreadCount:self.badgeData.unreadCount];
+    [self updateUnreadCount:self.badgeData.unreadCount conversationHash:_item.conversationHash];
     
+    NSString *conversationHash = self.item.conversationHash;
     __weak __typeof(self) weakSelf = self;
     self.badgeData.updateUnreadCountBlock = ^void(NSUInteger unreadCount){
         dispatch_async(dispatch_get_main_queue(), ^{
-            [weakSelf updateUnreadCount:unreadCount];
+            [weakSelf updateUnreadCount:unreadCount conversationHash:conversationHash];
         });
     };
 }
 
-- (void)updateUnreadCount:(NSUInteger)unreadMessagesCountForConversation
+- (void)updateUnreadCount:(NSUInteger)unreadMessagesCountForConversation conversationHash:(NSString *)conversationHash
 {
+    if (![conversationHash isEqualToString:self.item.conversationHash]) {
+        return;
+    }
+    
     if (unreadMessagesCountForConversation > 0) {
         self.unreadBadgeView.hidden = NO;
         self.unreadBadgeCountLabel.text = [NSString stringWithFormat:@"%ld",(long)unreadMessagesCountForConversation];
@@ -129,7 +132,6 @@
 {
     [super prepareForReuse];
     [self.avatarImageView prepareForReuse];
-    [self.badgeData prepareForReuse];
     self.unreadBadgeView.hidden = YES;
     self.unreadBadgeCountLabel.text = @"";
 }
