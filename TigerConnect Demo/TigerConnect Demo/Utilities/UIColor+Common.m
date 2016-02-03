@@ -1,6 +1,6 @@
 //
 //  UIColor+Common.m
-//  TigerConnect Messenger
+//  TigerConnect Demo
 //
 //  Created by Oren Zitoun on 12/14/15.
 //  Copyright © 2015 TigerText. All rights reserved.

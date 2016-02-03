@@ -9,10 +9,8 @@
 #import "ConversationViewController.h"
 #import "ConversationBackView.h"
 #import "LoadMoreMessagesHeaderView.h"
-#import "MessageCell.h"
 #import "OutgoingMessageCell.h"
 #import "IncomingMessageCell.h"
-#import "MessageUtilities.h"
 
 NSString *const OutgoingMessageCellIdentifier = @"OutgoingMessageCell";
 NSString *const IncomingMessageCellIdentifier = @"IncomingMessageCell";
@@ -31,7 +29,7 @@ const NSUInteger MessagesPerPage = 30;
 @property (nonatomic) NSMutableArray *messages;
 @property (nonatomic) BOOL tableManuallyUpdated;
 
-// Conversatin pagination
+// Conversation pagination
 @property (nonatomic) BOOL hasMoreMessages;
 @property (nonatomic) NSUInteger messagesBatchSize;
 @property (nonatomic) NSUInteger messagesFetchOffset;
@@ -147,11 +145,6 @@ const NSUInteger MessagesPerPage = 30;
     
     [self setBackButton];
     
-    // Setting up the message input view (text input view that shows up above the keyboard)
-    //self.messageInputView.canEdit = !self.showCompose;
-    //self.inputAccessoryView = self.messageInputView.keyboardTrackerView;
-    //[self.view addSubview:self.messageInputView];
-    
     // Adjusting the tableView insets according to the message input position
     UIEdgeInsets insets = [self tableViewInsetsWithBottomValue:self.messageInputView.height];
     self.tableView.contentInset = insets;
@@ -255,7 +248,7 @@ const NSUInteger MessagesPerPage = 30;
 
 - (IBAction)onSendButtonPressed:(id)sender
 {
-    NSString *text = [MessageUtilities sanitizeText:self.inputMessageTextView.text];
+    NSString *text = [self.inputMessageTextView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     if (text.length == 0) {
         return;
     }

@@ -90,20 +90,21 @@
         //sec
         timeLeft = [NSString stringWithFormat:@"< 1 minute"];
         //        timeLeft = [NSString stringWithFormat:@"%.0f seconds left",timeInterval];
-    }else if (timeInterval > 60 && timeInterval < 60 * 60) {
+    } else if (timeInterval > 60 && timeInterval < 60 * 60) {
         //min
         timeLeft = [NSString stringWithFormat:@"%.0f minutes left",timeInterval/60];
-    }else if (timeInterval > 60 * 60 && timeInterval < 60 * 60 * 24) {
+    } else if (timeInterval > 60 * 60 && timeInterval < 60 * 60 * 24) {
         //hr
         timeLeft = [NSString stringWithFormat:@"%.0f hours left",timeInterval/(60 * 60)];
-    }else if (timeInterval > 60 * 60 * 24) {
+    } else if (timeInterval > 60 * 60 * 24) {
         //days
         timeLeft = [NSString stringWithFormat:@"%.0f days left",timeInterval/(60 * 60 * 24)];
     }
     return timeLeft;
 }
 
-+ (NSString *)convertSecondsToTimeString:(NSTimeInterval)totalSeconds {
++ (NSString *)convertSecondsToTimeString:(NSTimeInterval)totalSeconds
+{
     if (totalSeconds == 0) return @"00:00";
     
     NSInteger seconds = (NSInteger)totalSeconds % 60;
@@ -112,8 +113,7 @@
     
     if (hours > 0) {
         return [NSString stringWithFormat:@"%02ld:%02ld:%02ld",(long)hours, (long)minutes, (long)seconds];
-    }
-    else {
+    } else {
         return [NSString stringWithFormat:@"%02ld:%02ld",(long)minutes, (long)seconds];
     }
 }

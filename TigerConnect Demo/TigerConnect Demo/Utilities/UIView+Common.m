@@ -1,6 +1,6 @@
 //
 //  UIView+Common.m
-//  TigerConnect Messenger
+//  TigerConnect Demo
 //
 //  Created by Oren Zitoun on 11/20/15.
 //  Copyright © 2015 TigerText. All rights reserved.

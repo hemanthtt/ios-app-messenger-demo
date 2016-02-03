@@ -17,24 +17,29 @@
 
 @implementation LoadMoreMessagesHeaderView
 
-+ (CGFloat)headerHeight {
++ (CGFloat)headerHeight
+{
     return 50.0;
 }
 
-- (void)dealloc {
+- (void)dealloc
+{
     self.delegate = nil;
 }
 
-- (void)awakeFromNib {
+- (void)awakeFromNib
+{
     [super awakeFromNib];
     self.loadMoreMessageLabel.textColor = leadingColor();
 }
 
-- (IBAction)onLoadMoreButtonPressed:(id)sender {
+- (IBAction)onLoadMoreButtonPressed:(id)sender
+{
     [self.delegate didPressedLoadMoreMessages:self];
 }
 
-- (void)setLoadMoreLabelText:(NSString *)text {
+- (void)setLoadMoreLabelText:(NSString *)text
+{
     self.loadMoreMessageLabel.text = text;
 }
 

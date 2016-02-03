@@ -83,7 +83,6 @@ typedef NS_ENUM(NSInteger, LoginState) {
 // Handle login button press
 - (IBAction)onLoginButton:(id)sender
 {
-    
     if (self.emailTextField.text.length == 0) {
         UIAlertController *alertController = [UIHelpers alertControllerWithTitle:@"Error" message:@"Please enter an email" completion:nil];
         [self presentViewController:alertController animated:YES completion:nil];
@@ -119,15 +118,11 @@ typedef NS_ENUM(NSInteger, LoginState) {
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     BOOL shouldReturn = YES;
-    if(textField)
-    {
-        if([textField isEqual:self.emailTextField] && self.passwordTextField)
-        {
+    if(textField) {
+        if([textField isEqual:self.emailTextField] && self.passwordTextField) {
             shouldReturn = NO;
             [self.passwordTextField becomeFirstResponder];
-        }
-        else if([textField isEqual:self.passwordTextField])
-        {
+        } else if([textField isEqual:self.passwordTextField]) {
             shouldReturn = NO;
             [self onLoginButton:nil];
         }

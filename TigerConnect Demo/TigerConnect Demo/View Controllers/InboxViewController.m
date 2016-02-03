@@ -101,7 +101,6 @@
     self.navigationItem.title = [[[TTKit sharedInstance] currentOrganization] name];
 }
 
-
 - (TTRosterEntry *)rosterEntryAtIndexPath:(NSIndexPath *)indexPath
 {
     return [self.inboxFetchedResultsController objectAtIndexPath:indexPath];

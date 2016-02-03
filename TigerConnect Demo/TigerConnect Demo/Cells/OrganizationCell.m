@@ -27,7 +27,7 @@
 
 - (void)awakeFromNib
 {
-    self.selectedIndicatorView.backgroundColor = self.selectedIndicatorViewColor ?: leadingColor();
+    self.selectedIndicatorView.backgroundColor = leadingColor();
 }
 
 - (void)setItem:(TTOrganization *)item
@@ -37,14 +37,14 @@
     UIFont *font = nil;
     UIColor *textColor = nil;
     if ([_item.token isEqualToString:[[TTKit sharedInstance] currentOrganizationToken]]) {
-        font = self.selectedOrganizationNameLabelFont ?: mediumFont(self.organizationNameLabel.font.pointSize);
-        textColor = self.selectedOrganizationNameLabelColor ?: [UIColor blackColor];
-        self.backgroundColor = self.selectedCellBackgroundColor ?: [UIColor colorFromRGB:0xFDEBA9];
+        font = mediumFont(self.organizationNameLabel.font.pointSize);
+        textColor = [UIColor blackColor];
+        self.backgroundColor = [UIColor colorFromRGB:0xFDEBA9];
         self.selectedIndicatorView.hidden = NO;
     }
     else {
-        font = self.organizationNameLabelFont ?: regularFont(self.organizationNameLabel.font.pointSize);
-        textColor = self.organizationNameLabelColor ?: defaultGrayColor();
+        font = regularFont(self.organizationNameLabel.font.pointSize);
+        textColor = defaultGrayColor();
         self.backgroundColor = [UIColor whiteColor];
         self.selectedIndicatorView.hidden = YES;
     }
@@ -70,8 +70,7 @@
     if (unreadMessagesCountForConversation > 0) {
         self.unreadBadgeView.hidden = NO;
         self.unreadBadgeCountLabel.text = [NSString stringWithFormat:@"%ld",(long)unreadMessagesCountForConversation];
-    }
-    else {
+    } else {
         self.unreadBadgeView.hidden = YES;
         self.unreadBadgeCountLabel.text = @"";
     }
@@ -96,59 +95,6 @@
     self.unreadBadgeView.hidden = YES;
     self.unreadBadgeCountLabel.text = @"";
     [super prepareForReuse];
-}
-
-#pragma mark - UIAppearance
-
-- (void)setOrganizationNameLabelColor:(UIColor *)organizationNameLabelColor
-{
-    _organizationNameLabelColor = organizationNameLabelColor;
-    
-    if (![_item.token isEqualToString:[[TTKit sharedInstance] currentOrganizationToken]]) {
-        self.organizationNameLabel.textColor = _organizationNameLabelColor;
-    }
-}
-
-- (void)setOrganizationNameLabelFont:(UIFont *)organizationNameLabelFont
-{
-    _organizationNameLabelFont = organizationNameLabelFont;
-    
-    if (![_item.token isEqualToString:[[TTKit sharedInstance] currentOrganizationToken]]) {
-        self.organizationNameLabel.font = _organizationNameLabelFont;
-    }
-}
-
-- (void)setSelectedOrganizationNameLabelColor:(UIColor *)selectedOrganizationNameLabelColor
-{
-    _selectedOrganizationNameLabelColor = selectedOrganizationNameLabelColor;
-    
-    if ([_item.token isEqualToString:[[TTKit sharedInstance] currentOrganizationToken]]) {
-        self.organizationNameLabel.textColor = _selectedOrganizationNameLabelColor;
-    }
-}
-
-- (void)setSelectedOrganizationNameLabelFont:(UIFont *)selectedOrganizationNameLabelFont
-{
-    _selectedOrganizationNameLabelFont = selectedOrganizationNameLabelFont;
-    
-    if ([_item.token isEqualToString:[[TTKit sharedInstance] currentOrganizationToken]]) {
-        self.organizationNameLabel.font = _selectedOrganizationNameLabelFont;
-    }
-}
-
-- (void)setSelectedIndicatorViewColor:(UIColor *)selectedIndicatorViewColor
-{
-    _selectedIndicatorViewColor = selectedIndicatorViewColor;
-    self.selectedIndicatorView.backgroundColor = _selectedIndicatorViewColor;
-}
-
-- (void)setSelectedCellBackgroundColor:(UIColor *)selectedCellBackgroundColor
-{
-    _selectedCellBackgroundColor = selectedCellBackgroundColor;
-    
-    if ([_item.token isEqualToString:[[TTKit sharedInstance] currentOrganizationToken]]) {
-        self.backgroundColor = _selectedCellBackgroundColor;
-    }
 }
 
 @end

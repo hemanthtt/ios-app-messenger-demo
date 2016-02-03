@@ -121,7 +121,6 @@
         text = @"Message Failed";
         color = defaultRedColor();
     }
-    
     self.lastMessageStatusLabel.text = text;
     self.lastMessageStatusLabel.textColor = color;
 }
