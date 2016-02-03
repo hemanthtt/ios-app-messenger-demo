@@ -5,6 +5,7 @@
 ## Build generated
 build/
 DerivedData
+TigerConnect Demo/Pods
 
 ## Various settings
 *.pbxuser
