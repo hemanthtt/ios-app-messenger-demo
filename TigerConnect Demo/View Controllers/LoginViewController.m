@@ -19,7 +19,7 @@ NSString * const kYourLoginPassword = @"";
 typedef NS_ENUM(NSInteger, LoginState) {
     LoginStateDefault           = 0,
     LoginStateInProgress        = 1,
-    LoginStateInAuthenticated   = 2,
+    LoginStateAuthenticated   = 2,
 };
 
 @interface LoginViewController () <UITextFieldDelegate>
@@ -69,7 +69,7 @@ typedef NS_ENUM(NSInteger, LoginState) {
             self.loginButton.hidden = YES;
             break;
         }
-        case LoginStateInAuthenticated:
+        case LoginStateAuthenticated:
         {
             [self.activityIndicator startAnimating];
             self.loginButton.hidden = YES;
@@ -99,7 +99,7 @@ typedef NS_ENUM(NSInteger, LoginState) {
     
     // Login using the username and password, the success block will returned the logged in user object
     [[TTKit sharedInstance] loginWithUserId:self.emailTextField.text password:self.passwordTextField.text success:^(TTUser *user) {
-        self.loginState = LoginStateInAuthenticated;
+        self.loginState = LoginStateAuthenticated;
         // Adding a small delay here
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [GetAppDelegate loadUserLoggedInUI];
