@@ -44,7 +44,6 @@
         <!--Inbox-->
         <scene sceneID="KDc-lM-6aw">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="j3b-C8-oxs" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="InboxViewController" title="Inbox" id="7m1-Jd-kiR" userLabel="Inbox" customClass="InboxViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ptV-iY-h18">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -64,6 +63,7 @@
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j3b-C8-oxs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-242" y="-354"/>
         </scene>
@@ -249,7 +249,6 @@
         <!--Conversation View Controller-->
         <scene sceneID="ym2-qX-jCp">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="81d-AL-Fqf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="ConversationViewController" hidesBottomBarWhenPushed="YES" id="BsS-0c-RI8" customClass="ConversationViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0xy-i2-rBM"/>
@@ -331,6 +330,7 @@
                         <outlet property="tableView" destination="eV2-fC-XNu" id="1iR-Vh-Pfs"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="81d-AL-Fqf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="668" y="-354"/>
         </scene>
