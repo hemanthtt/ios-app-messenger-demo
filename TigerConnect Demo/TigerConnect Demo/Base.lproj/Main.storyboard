@@ -270,19 +270,64 @@
                                     <outlet property="delegate" destination="BsS-0c-RI8" id="0qh-ic-aHj"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O6V-4E-6Eh" userLabel="Message Input View">
+                                <rect key="frame" x="0.0" y="551" width="600" height="49"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fVh-xL-owM" userLabel="Send Button">
+                                        <rect key="frame" x="548" y="6" width="44" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="37" id="OUd-a6-Gjj"/>
+                                            <constraint firstAttribute="width" constant="44" id="yEf-6C-1do"/>
+                                        </constraints>
+                                        <state key="normal" title="Send">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onSendButtonPressed:" destination="BsS-0c-RI8" eventType="touchUpInside" id="kQK-l8-GKR"/>
+                                        </connections>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OOp-6m-7J7">
+                                        <rect key="frame" x="10" y="6" width="530" height="37"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.79922217650000005" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="OOp-6m-7J7" secondAttribute="bottom" constant="6" id="6l0-i9-T2Q"/>
+                                    <constraint firstItem="OOp-6m-7J7" firstAttribute="leading" secondItem="O6V-4E-6Eh" secondAttribute="leading" constant="10" id="9QM-ZQ-gUH"/>
+                                    <constraint firstItem="fVh-xL-owM" firstAttribute="leading" secondItem="OOp-6m-7J7" secondAttribute="trailing" constant="8" symbolic="YES" id="K4Y-iH-xn6"/>
+                                    <constraint firstItem="OOp-6m-7J7" firstAttribute="top" secondItem="O6V-4E-6Eh" secondAttribute="top" constant="6" id="SqO-gl-Eet"/>
+                                    <constraint firstAttribute="height" constant="49" id="SzJ-Cx-Dgz"/>
+                                    <constraint firstAttribute="trailing" secondItem="fVh-xL-owM" secondAttribute="trailing" constant="8" id="k5h-wl-I2e"/>
+                                    <constraint firstAttribute="bottom" secondItem="fVh-xL-owM" secondAttribute="bottom" constant="6" id="qYb-SA-eY6"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="O6V-4E-6Eh" secondAttribute="trailing" id="6nW-Od-KrN"/>
+                            <constraint firstItem="O6V-4E-6Eh" firstAttribute="leading" secondItem="u7t-jS-hLg" secondAttribute="leading" id="Dy4-e7-ekc"/>
                             <constraint firstAttribute="trailing" secondItem="eV2-fC-XNu" secondAttribute="trailing" id="QaT-AO-Xzc"/>
                             <constraint firstItem="eV2-fC-XNu" firstAttribute="leading" secondItem="u7t-jS-hLg" secondAttribute="leading" id="Tpd-cX-Wfl"/>
                             <constraint firstItem="eV2-fC-XNu" firstAttribute="top" secondItem="0xy-i2-rBM" secondAttribute="bottom" id="tEx-1R-Thx"/>
                             <constraint firstItem="eV2-fC-XNu" firstAttribute="bottom" secondItem="u7t-jS-hLg" secondAttribute="bottomMargin" id="vAo-up-MTi"/>
+                            <constraint firstItem="Ypv-WO-Cbc" firstAttribute="top" secondItem="O6V-4E-6Eh" secondAttribute="bottom" id="zna-bn-EmU"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="v4G-dG-0iL"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="inputMessageTextView" destination="OOp-6m-7J7" id="1Vz-k0-WGZ"/>
+                        <outlet property="messageInputView" destination="O6V-4E-6Eh" id="Ll0-JS-yog"/>
+                        <outlet property="sendButton" destination="fVh-xL-owM" id="e2f-Fx-eoS"/>
                         <outlet property="tableView" destination="eV2-fC-XNu" id="1iR-Vh-Pfs"/>
                     </connections>
                 </viewController>

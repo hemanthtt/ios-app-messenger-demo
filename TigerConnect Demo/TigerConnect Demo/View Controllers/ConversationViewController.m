@@ -12,9 +12,13 @@
 #import "MessageCell.h"
 #import "OutgoingMessageCell.h"
 #import "IncomingMessageCell.h"
+#import "MessageUtilities.h"
 
 NSString *const OutgoingMessageCellIdentifier = @"OutgoingMessageCell";
 NSString *const IncomingMessageCellIdentifier = @"IncomingMessageCell";
+
+const NSUInteger kMessageTimeToLive = 30*60*24; //30 days
+const BOOL kDeleteOnRead = NO;
 
 const BOOL SupportPagination = YES; // We highly recommend to use pagination to improve loading performance.
 const NSUInteger MessagesPerPage = 30;
@@ -34,6 +38,10 @@ const NSUInteger MessagesPerPage = 30;
 
 // Load more messages header view
 @property (nonatomic) LoadMoreMessagesHeaderView *loadMoreMessagesHeaderView;
+
+@property (weak, nonatomic) IBOutlet UIView *messageInputView;
+@property (weak, nonatomic) IBOutlet UIButton *sendButton;
+@property (weak, nonatomic) IBOutlet UITextView *inputMessageTextView;
 
 @end
 
@@ -145,7 +153,7 @@ const NSUInteger MessagesPerPage = 30;
     //[self.view addSubview:self.messageInputView];
     
     // Adjusting the tableView insets according to the message input position
-    UIEdgeInsets insets = [self tableViewInsetsWithBottomValue:0];
+    UIEdgeInsets insets = [self tableViewInsetsWithBottomValue:self.messageInputView.height];
     self.tableView.contentInset = insets;
     
     // Making sure the table will scroll to bottom after the user open's the conversation
@@ -243,6 +251,29 @@ const NSUInteger MessagesPerPage = 30;
         self.hasMoreMessages = YES;
     }
     self.messages = [NSMutableArray arrayWithArray:[[inMessages reverseObjectEnumerator] allObjects]];
+}
+
+- (IBAction)onSendButtonPressed:(id)sender
+{
+    NSString *text = [MessageUtilities sanitizeText:self.inputMessageTextView.text];
+    if (text.length == 0) {
+        return;
+    }
+    
+    [[TTKit sharedInstance] sendMessage:text
+                            rosterEntry:self.rosterEntry
+                               lifetime:kMessageTimeToLive
+                           deleteOnRead:kDeleteOnRead
+                         attachmentData:nil
+                     attachmentMimeType:nil
+                                success:^(TTMessage *newMessage) {
+
+                                }
+                                failure:^(NSError *error) {
+
+                                }];
+    
+    self.inputMessageTextView.text = @"";
 }
 
 #pragma mark - Table View delegate
@@ -454,6 +485,14 @@ const NSUInteger MessagesPerPage = 30;
     return YES;
 }
 
+- (UIView *)inputAccessoryView
+{
+    if (self.messageInputView.superview == self.view) {
+        [self.messageInputView removeFromSuperview];
+    }
+    return self.messageInputView;
+}
+
 #pragma mark - Table View Insets
 
 // Updating the table view insets based on the message input view position
@@ -523,7 +562,7 @@ const NSUInteger MessagesPerPage = 30;
     CGRect keyboardRect = [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
     CGFloat keyboardTop = CGRectGetMinY([self.view convertRect:keyboardRect fromView:nil]);
     CGFloat bottomInset = MAX(0, self.view.height - keyboardTop);
-    
+
     NSTimeInterval duration = [[notification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     UIViewAnimationCurve curve = [[notification.userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue];
     UIViewAnimationOptions options = UIViewAnimationOptionBeginFromCurrentState | (curve << 16);
@@ -532,6 +571,7 @@ const NSUInteger MessagesPerPage = 30;
                         options:options
                      animations:^{
                          [self updateTableViewInsetsWithBottomValue:bottomInset];
+                         [self scrollToBottomAnimated:NO];
                      }
                      completion:nil];
 }

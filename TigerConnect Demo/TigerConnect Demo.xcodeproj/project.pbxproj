@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3A01C1651C61307E00D54361 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C1641C61307E00D54361 /* main.m */; };
 		3A01C1681C61307E00D54361 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C1671C61307E00D54361 /* AppDelegate.m */; };
-		3A01C16B1C61307E00D54361 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C16A1C61307E00D54361 /* ViewController.m */; };
 		3A01C16E1C61307E00D54361 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A01C16C1C61307E00D54361 /* Main.storyboard */; };
 		3A01C1701C61307E00D54361 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A01C16F1C61307E00D54361 /* Assets.xcassets */; };
 		3A01C17E1C61307E00D54361 /* TigerConnect_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C17D1C61307E00D54361 /* TigerConnect_DemoTests.m */; };
@@ -66,8 +65,6 @@
 		3A01C1641C61307E00D54361 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3A01C1661C61307E00D54361 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3A01C1671C61307E00D54361 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3A01C1691C61307E00D54361 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3A01C16A1C61307E00D54361 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3A01C16D1C61307E00D54361 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3A01C16F1C61307E00D54361 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A01C1741C61307E00D54361 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -183,8 +180,6 @@
 				3A01C1991C61370000D54361 /* View Controllers */,
 				3A01C1661C61307E00D54361 /* AppDelegate.h */,
 				3A01C1671C61307E00D54361 /* AppDelegate.m */,
-				3A01C1691C61307E00D54361 /* ViewController.h */,
-				3A01C16A1C61307E00D54361 /* ViewController.m */,
 				3A01C16C1C61307E00D54361 /* Main.storyboard */,
 				3A01C16F1C61307E00D54361 /* Assets.xcassets */,
 				3A01C1961C6132C100D54361 /* LaunchScreen.storyboard */,
@@ -504,7 +499,6 @@
 				3A01C1DD1C6168D600D54361 /* MessageCell.m in Sources */,
 				3A01C1A01C6137C700D54361 /* Constants.m in Sources */,
 				3A01C19C1C61371000D54361 /* LoginViewController.m in Sources */,
-				3A01C16B1C61307E00D54361 /* ViewController.m in Sources */,
 				3A01C1CD1C6163F300D54361 /* BadgeView.m in Sources */,
 				3A01C1A41C6138E800D54361 /* UIHelpers.m in Sources */,
 				3A01C1CA1C6163AA00D54361 /* ConversationBackView.m in Sources */,
