@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3A01C1651C61307E00D54361 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C1641C61307E00D54361 /* main.m */; };
-		3A01C1E81C61D64C00D54361 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C1E71C61D64C00D54361 /* AppDelegate.m */; };
 		3A01C1FA1C61D68800D54361 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A01C1F91C61D68800D54361 /* Assets.xcassets */; };
 		3A01C20C1C61D6B100D54361 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C2001C61D6B100D54361 /* Constants.m */; };
 		3A01C20D1C61D6B100D54361 /* DateHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C2021C61D6B100D54361 /* DateHelpers.m */; };
@@ -36,6 +35,7 @@
 		3A01C2451C61D6CD00D54361 /* OutgoingMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A01C23C1C61D6CD00D54361 /* OutgoingMessageCell.xib */; };
 		3A01C2501C61D99D00D54361 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A01C2481C61D92700D54361 /* LaunchScreen.storyboard */; };
 		3A01C2511C61D9A000D54361 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A01C24A1C61D92700D54361 /* Main.storyboard */; };
+		3A01C2541C61DB3300D54361 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C2531C61DB3300D54361 /* AppDelegate.m */; };
 		CE82055B08D04E5B059E9234 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3D65308212112D46C07A9D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -63,8 +63,6 @@
 		3A01C1641C61307E00D54361 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3A01C1791C61307E00D54361 /* TigerConnect DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TigerConnect DemoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A01C1841C61307E00D54361 /* TigerConnect DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TigerConnect DemoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A01C1E61C61D64C00D54361 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = SOURCE_ROOT; };
-		3A01C1E71C61D64C00D54361 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = SOURCE_ROOT; };
 		3A01C1F91C61D68800D54361 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A01C1FB1C61D68F00D54361 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A01C1FD1C61D69F00D54361 /* TigerConnect.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TigerConnect.pch; sourceTree = "<group>"; };
@@ -114,6 +112,8 @@
 		3A01C23C1C61D6CD00D54361 /* OutgoingMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OutgoingMessageCell.xib; sourceTree = "<group>"; };
 		3A01C2491C61D92700D54361 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A01C24B1C61D92700D54361 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3A01C2521C61DB3300D54361 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3A01C2531C61DB3300D54361 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9B3D65308212112D46C07A9D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -170,10 +170,10 @@
 				3A01C21F1C61D6C200D54361 /* Views */,
 				3A01C2121C61D6BA00D54361 /* View Controllers */,
 				3A01C1FE1C61D6B100D54361 /* Utilities */,
-				3A01C1E61C61D64C00D54361 /* AppDelegate.h */,
-				3A01C1E71C61D64C00D54361 /* AppDelegate.m */,
 				3A01C2481C61D92700D54361 /* LaunchScreen.storyboard */,
 				3A01C24A1C61D92700D54361 /* Main.storyboard */,
+				3A01C2521C61DB3300D54361 /* AppDelegate.h */,
+				3A01C2531C61DB3300D54361 /* AppDelegate.m */,
 				3A01C1F91C61D68800D54361 /* Assets.xcassets */,
 				3A01C1FB1C61D68F00D54361 /* Info.plist */,
 				3A01C1FD1C61D69F00D54361 /* TigerConnect.pch */,
@@ -483,9 +483,9 @@
 				3A01C20D1C61D6B100D54361 /* DateHelpers.m in Sources */,
 				3A01C20F1C61D6B100D54361 /* UIColor+Common.m in Sources */,
 				3A01C21E1C61D6BA00D54361 /* OrganizationsViewController.m in Sources */,
-				3A01C1E81C61D64C00D54361 /* AppDelegate.m in Sources */,
 				3A01C2421C61D6CD00D54361 /* OrganizationCell.m in Sources */,
 				3A01C23F1C61D6CD00D54361 /* IncomingMessageCell.m in Sources */,
+				3A01C2541C61DB3300D54361 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
