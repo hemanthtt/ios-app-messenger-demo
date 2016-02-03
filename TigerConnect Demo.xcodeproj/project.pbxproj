@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3A01C1651C61307E00D54361 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C1641C61307E00D54361 /* main.m */; };
-		3A01C17E1C61307E00D54361 /* TigerConnect_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C17D1C61307E00D54361 /* TigerConnect_DemoTests.m */; };
-		3A01C1891C61307E00D54361 /* TigerConnect_DemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C1881C61307E00D54361 /* TigerConnect_DemoUITests.m */; };
 		3A01C1E81C61D64C00D54361 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C1E71C61D64C00D54361 /* AppDelegate.m */; };
 		3A01C1F61C61D67700D54361 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A01C1F51C61D67700D54361 /* Main.storyboard */; };
 		3A01C1F81C61D68100D54361 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A01C1F71C61D68100D54361 /* LaunchScreen.storyboard */; };
@@ -65,11 +63,7 @@
 		3A01C1601C61307E00D54361 /* TigerConnect Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TigerConnect Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A01C1641C61307E00D54361 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3A01C1791C61307E00D54361 /* TigerConnect DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TigerConnect DemoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A01C17D1C61307E00D54361 /* TigerConnect_DemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TigerConnect_DemoTests.m; sourceTree = "<group>"; };
-		3A01C17F1C61307E00D54361 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A01C1841C61307E00D54361 /* TigerConnect DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TigerConnect DemoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A01C1881C61307E00D54361 /* TigerConnect_DemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TigerConnect_DemoUITests.m; sourceTree = "<group>"; };
-		3A01C18A1C61307E00D54361 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A01C1E61C61D64C00D54361 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = SOURCE_ROOT; };
 		3A01C1E71C61D64C00D54361 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = SOURCE_ROOT; };
 		3A01C1F51C61D67700D54361 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -154,8 +148,6 @@
 			isa = PBXGroup;
 			children = (
 				3A01C1621C61307E00D54361 /* TigerConnect Demo */,
-				3A01C17C1C61307E00D54361 /* TigerConnect DemoTests */,
-				3A01C1871C61307E00D54361 /* TigerConnect DemoUITests */,
 				3A01C1611C61307E00D54361 /* Products */,
 				40AF792FACAB12BF67306722 /* Pods */,
 				92C4ED489C3B21AC8311E26E /* Frameworks */,
@@ -197,24 +189,6 @@
 				3A01C1641C61307E00D54361 /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		3A01C17C1C61307E00D54361 /* TigerConnect DemoTests */ = {
-			isa = PBXGroup;
-			children = (
-				3A01C17D1C61307E00D54361 /* TigerConnect_DemoTests.m */,
-				3A01C17F1C61307E00D54361 /* Info.plist */,
-			);
-			path = "TigerConnect DemoTests";
-			sourceTree = "<group>";
-		};
-		3A01C1871C61307E00D54361 /* TigerConnect DemoUITests */ = {
-			isa = PBXGroup;
-			children = (
-				3A01C1881C61307E00D54361 /* TigerConnect_DemoUITests.m */,
-				3A01C18A1C61307E00D54361 /* Info.plist */,
-			);
-			path = "TigerConnect DemoUITests";
 			sourceTree = "<group>";
 		};
 		3A01C1FE1C61D6B100D54361 /* Utilities */ = {
@@ -521,7 +495,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A01C17E1C61307E00D54361 /* TigerConnect_DemoTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,7 +502,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A01C1891C61307E00D54361 /* TigerConnect_DemoUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
