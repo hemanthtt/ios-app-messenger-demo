@@ -13,6 +13,11 @@
 		3A01C2781C62C64A00D54361 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A01C2761C62C64A00D54361 /* LaunchScreen.storyboard */; };
 		3A01C2A21C62CA2200D54361 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C2A11C62CA2200D54361 /* LoginViewController.swift */; };
 		3A01C2A41C62CDAC00D54361 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C2A31C62CDAC00D54361 /* Constants.swift */; };
+		3A2713791C6D045500FA7207 /* InboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2713781C6D045500FA7207 /* InboxViewController.swift */; };
+		3A27137B1C6D069A00FA7207 /* ConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A27137A1C6D069A00FA7207 /* ConversationCell.swift */; };
+		3A27137D1C6D0A9C00FA7207 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A27137C1C6D0A9C00FA7207 /* ConversationViewController.swift */; };
+		3A27137F1C6D268D00FA7207 /* ConversationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A27137E1C6D268D00FA7207 /* ConversationCell.xib */; };
+		3A86F7DC1C692E8E00749A1F /* UIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A86F7DB1C692E8E00749A1F /* UIHelpers.swift */; };
 		9658FAD621425908B81BCEAA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C22EFEBBCC4C23FE020EF05B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +50,11 @@
 		3A01C29C1C62C96800D54361 /* TTKit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TTKit-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		3A01C2A11C62CA2200D54361 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3A01C2A31C62CDAC00D54361 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3A2713781C6D045500FA7207 /* InboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxViewController.swift; sourceTree = "<group>"; };
+		3A27137A1C6D069A00FA7207 /* ConversationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationCell.swift; sourceTree = "<group>"; };
+		3A27137C1C6D0A9C00FA7207 /* ConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
+		3A27137E1C6D268D00FA7207 /* ConversationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConversationCell.xib; sourceTree = "<group>"; };
+		3A86F7DB1C692E8E00749A1F /* UIHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIHelpers.swift; sourceTree = "<group>"; };
 		59D3C5950AF0C320E871F75F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A614A8D9BB379207DE3B1997 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C22EFEBBCC4C23FE020EF05B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,6 +126,8 @@
 		3A01C29D1C62C9FA00D54361 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				3A27137A1C6D069A00FA7207 /* ConversationCell.swift */,
+				3A27137E1C6D268D00FA7207 /* ConversationCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -124,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				3A01C2A31C62CDAC00D54361 /* Constants.swift */,
+				3A86F7DB1C692E8E00749A1F /* UIHelpers.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -132,6 +145,8 @@
 			isa = PBXGroup;
 			children = (
 				3A01C2A11C62CA2200D54361 /* LoginViewController.swift */,
+				3A2713781C6D045500FA7207 /* InboxViewController.swift */,
+				3A27137C1C6D0A9C00FA7207 /* ConversationViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -267,6 +282,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A27137F1C6D268D00FA7207 /* ConversationCell.xib in Resources */,
 				3A01C2781C62C64A00D54361 /* LaunchScreen.storyboard in Resources */,
 				3A01C2751C62C64A00D54361 /* Assets.xcassets in Resources */,
 				3A01C2731C62C64A00D54361 /* Main.storyboard in Resources */,
@@ -342,9 +358,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A27137D1C6D0A9C00FA7207 /* ConversationViewController.swift in Sources */,
+				3A2713791C6D045500FA7207 /* InboxViewController.swift in Sources */,
 				3A01C2A21C62CA2200D54361 /* LoginViewController.swift in Sources */,
+				3A27137B1C6D069A00FA7207 /* ConversationCell.swift in Sources */,
 				3A01C26E1C62C64A00D54361 /* AppDelegate.swift in Sources */,
 				3A01C2A41C62CDAC00D54361 /* Constants.swift in Sources */,
+				3A86F7DC1C692E8E00749A1F /* UIHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

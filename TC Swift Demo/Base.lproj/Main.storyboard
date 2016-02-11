@@ -44,21 +44,17 @@
         <!--Inbox-->
         <scene sceneID="KDc-lM-6aw">
             <objects>
-                <tableViewController storyboardIdentifier="InboxViewController" title="Inbox" id="7m1-Jd-kiR" userLabel="Inbox" customClass="InboxViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="InboxViewController" title="Inbox" id="7m1-Jd-kiR" userLabel="Inbox" customClass="InboxViewController" customModule="TC_Swift_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ptV-iY-h18">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="dataSource" destination="7m1-Jd-kiR" id="DMK-eW-iU0"/>
-                            <outlet property="delegate" destination="7m1-Jd-kiR" id="umE-PJ-Nq0"/>
-                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Inbox" id="b7l-ev-998">
                         <barButtonItem key="leftBarButtonItem" id="TbI-PB-Cjp"/>
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="JTn-Xa-JcP" userLabel="Logout">
                             <connections>
-                                <action selector="onLogoutButtonPressed:" destination="7m1-Jd-kiR" id="Gaq-He-jvb"/>
+                                <action selector="onLogoutButtonPressed:" destination="7m1-Jd-kiR" id="fiQ-5a-HxH"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
