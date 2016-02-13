@@ -3,18 +3,106 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ConversationCell" id="Xto-xi-rIV" customClass="ConversationCell" customModule="TC_Swift_Demo" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-            <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xto-xi-rIV" id="SFI-SG-1bH">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="ConversationCell" rowHeight="73" id="5Uc-gM-nQ5" customClass="ConversationCell" customModule="TC_Swift_Demo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="73"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Uc-gM-nQ5" id="YQ0-si-EVY">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="72.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nDw-Rl-WNZ" customClass="TTImageView">
+                        <rect key="frame" x="14" y="14" width="45" height="45"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="45" id="Hi1-lI-Hvb"/>
+                            <constraint firstAttribute="height" constant="45" id="wrf-rG-V7r"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conversation Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NW0-bw-irW" userLabel="Conversation Name Label">
+                        <rect key="frame" x="67" y="18" width="140" height="18"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                        <color key="textColor" red="0.086274509799999996" green="0.090196078430000007" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="This is the last message i sent you" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRz-mn-KCC" userLabel="Last Message Label">
+                        <rect key="frame" x="67" y="38" width="180" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.47843137250000001" green="0.47843137250000001" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:59AM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Svx-vz-wpS" userLabel="Last Message Timestamp Label">
+                        <rect key="frame" x="255" y="21" width="50.5" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.6705882353" green="0.67450980390000004" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivered" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JG8-d1-n9g" userLabel="Last Message Status Label">
+                        <rect key="frame" x="252" y="40" width="53.5" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="rUO-ZY-JhP" userLabel="Unread Badge View">
+                        <rect key="frame" x="288" y="35.5" width="18" height="18"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Obz-Di-Vvi" userLabel="Unread count">
+                                <rect key="frame" x="6" y="3" width="6" height="12"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97254901959999995" green="0.25098039220000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Obz-Di-Vvi" firstAttribute="leading" secondItem="rUO-ZY-JhP" secondAttribute="leading" constant="6" id="Bva-Uh-klc"/>
+                            <constraint firstItem="Obz-Di-Vvi" firstAttribute="centerY" secondItem="rUO-ZY-JhP" secondAttribute="centerY" id="CZv-Px-Sld"/>
+                            <constraint firstAttribute="height" constant="18" id="Eld-Ym-PCp"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" secondItem="rUO-ZY-JhP" secondAttribute="height" multiplier="1:1" id="Ld1-cx-Y5k"/>
+                            <constraint firstItem="Obz-Di-Vvi" firstAttribute="centerX" secondItem="rUO-ZY-JhP" secondAttribute="centerX" id="VN4-Vb-fg1"/>
+                            <constraint firstAttribute="trailing" secondItem="Obz-Di-Vvi" secondAttribute="trailing" constant="6" id="Z2j-0a-6GR"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="self.layer.cornerRadius">
+                                <integer key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="NW0-bw-irW" firstAttribute="top" secondItem="nDw-Rl-WNZ" secondAttribute="top" constant="4" id="9F2-WI-YGh"/>
+                    <constraint firstAttribute="trailing" secondItem="rUO-ZY-JhP" secondAttribute="trailing" constant="14" id="Dya-ne-uJf"/>
+                    <constraint firstItem="vRz-mn-KCC" firstAttribute="leading" secondItem="NW0-bw-irW" secondAttribute="leading" id="HE4-O7-jq1"/>
+                    <constraint firstItem="NW0-bw-irW" firstAttribute="leading" secondItem="nDw-Rl-WNZ" secondAttribute="trailing" constant="8" id="HOj-7h-GsK"/>
+                    <constraint firstAttribute="trailing" secondItem="JG8-d1-n9g" secondAttribute="trailing" constant="14" id="JWw-di-LpN"/>
+                    <constraint firstItem="JG8-d1-n9g" firstAttribute="bottom" secondItem="vRz-mn-KCC" secondAttribute="bottom" id="PPJ-jt-jcM"/>
+                    <constraint firstItem="nDw-Rl-WNZ" firstAttribute="leading" secondItem="YQ0-si-EVY" secondAttribute="leading" constant="14" id="Tpe-Qu-y0O"/>
+                    <constraint firstItem="nDw-Rl-WNZ" firstAttribute="top" secondItem="YQ0-si-EVY" secondAttribute="top" constant="14" id="bLH-0D-wAI"/>
+                    <constraint firstItem="vRz-mn-KCC" firstAttribute="top" secondItem="NW0-bw-irW" secondAttribute="bottom" constant="2" id="cQa-4q-Xgh"/>
+                    <constraint firstItem="rUO-ZY-JhP" firstAttribute="top" secondItem="Svx-vz-wpS" secondAttribute="bottom" id="eXm-XJ-07f"/>
+                    <constraint firstAttribute="trailing" secondItem="Svx-vz-wpS" secondAttribute="trailing" constant="14" id="fou-xe-736"/>
+                    <constraint firstItem="JG8-d1-n9g" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vRz-mn-KCC" secondAttribute="trailing" constant="5" id="jBh-72-AyY"/>
+                    <constraint firstItem="Svx-vz-wpS" firstAttribute="bottom" secondItem="NW0-bw-irW" secondAttribute="bottom" id="oGY-qL-s5z"/>
+                    <constraint firstItem="Svx-vz-wpS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="NW0-bw-irW" secondAttribute="trailing" constant="5" id="w7a-hN-EP3"/>
+                </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="457" y="335"/>
+            <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="8"/>
+            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+            <connections>
+                <outlet property="avatar" destination="nDw-Rl-WNZ" id="Q8h-IV-NqK"/>
+                <outlet property="conversationNameLabel" destination="NW0-bw-irW" id="sve-Tk-X4h"/>
+                <outlet property="lastMessageLabel" destination="vRz-mn-KCC" id="O1Q-6C-mmU"/>
+                <outlet property="lastMessageStatusLabel" destination="JG8-d1-n9g" id="ZCJ-ya-h8t"/>
+                <outlet property="lastMessageTimestampLabel" destination="Svx-vz-wpS" id="zhd-Ql-7A6"/>
+                <outlet property="unreadBadgeCountLabel" destination="Obz-Di-Vvi" id="elh-G8-T4J"/>
+                <outlet property="unreadBadgeView" destination="rUO-ZY-JhP" id="EW0-cI-9Ja"/>
+            </connections>
+            <point key="canvasLocation" x="-731" y="312.5"/>
         </tableViewCell>
     </objects>
 </document>

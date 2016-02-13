@@ -8,13 +8,14 @@
 
 import UIKit
 
-class InboxViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class InboxViewController: UITableViewController, NSFetchedResultsControllerDelegate, OrganizationsBarButtonViewDelegate {
     
     var ttKit = TTKit.sharedInstance()
     var inboxFetchedResultsController: NSFetchedResultsController!
     var shouldReloadTable = false
+    var organizationBarButtonView: OrganizationsBarButtonView!
     
-    let conversationCellIdentifier = "ConversationCell"
+    let conversationCellIdentifier = String(ConversationCell)
     
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
@@ -60,6 +61,9 @@ class InboxViewController: UITableViewController, NSFetchedResultsControllerDele
     }
     
     func setOrganizationBarButton() {
+        self.organizationBarButtonView = OrganizationsBarButtonView.barView()
+        self.organizationBarButtonView.delegate = self
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: self.organizationBarButtonView)
     }
     
     func rosterEntryAtIndexPath(indexPath: NSIndexPath) -> TTRosterEntry? {
@@ -148,6 +152,14 @@ class InboxViewController: UITableViewController, NSFetchedResultsControllerDele
             let cell = tableView.cellForRowAtIndexPath(indexPath!) as! ConversationCell
             configureCell(cell, rosterEntry: rosterEntry)
         }
+    }
+    
+    //MARK: OrganizationsBarButtonViewDelegate
+    func organizationBarButtonPressed(sender: OrganizationsBarButtonView!) {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let organizationsViewController = appDelegate.storyboard?.instantiateViewControllerWithIdentifier("OrganizationsViewController")
+        let nav = UINavigationController.init(rootViewController: organizationsViewController!)
+        self.presentViewController(nav, animated: true, completion: nil)
     }
     
     // MARK: NSNotifications

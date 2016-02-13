@@ -66,7 +66,7 @@
         <!--Organizations-->
         <scene sceneID="OEW-zW-7TG">
             <objects>
-                <viewController storyboardIdentifier="OrganizationsViewController" id="tr7-s1-l5C" customClass="OrganizationsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OrganizationsViewController" id="tr7-s1-l5C" customClass="OrganizationsViewController" customModule="TC_Swift_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cY9-eH-df8"/>
                         <viewControllerLayoutGuide type="bottom" id="A3H-oK-acV"/>
@@ -81,8 +81,8 @@
                                 <color key="separatorColor" red="0.50980392159999999" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="tr7-s1-l5C" id="JgB-d2-y9T"/>
-                                    <outlet property="delegate" destination="tr7-s1-l5C" id="zBM-Y9-030"/>
+                                    <outlet property="dataSource" destination="tr7-s1-l5C" id="cYc-vI-Ctk"/>
+                                    <outlet property="delegate" destination="tr7-s1-l5C" id="4ZZ-9e-NCx"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -98,12 +98,12 @@
                     <navigationItem key="navigationItem" title="Organizations" id="ZE8-ca-0SO">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="b5S-R0-MRZ">
                             <connections>
-                                <action selector="onCloseButton:" destination="tr7-s1-l5C" id="Muc-0Y-Ztp"/>
+                                <action selector="onCloseButton:" destination="tr7-s1-l5C" id="IKe-DR-zUC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="CBv-23-vMz" id="r3H-gS-Jnm"/>
+                        <outlet property="tableView" destination="CBv-23-vMz" id="47C-C2-i8b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZuS-LD-qVI" userLabel="First Responder" sceneMemberID="firstResponder"/>

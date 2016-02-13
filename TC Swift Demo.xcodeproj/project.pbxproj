@@ -18,6 +18,14 @@
 		3A27137D1C6D0A9C00FA7207 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A27137C1C6D0A9C00FA7207 /* ConversationViewController.swift */; };
 		3A27137F1C6D268D00FA7207 /* ConversationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A27137E1C6D268D00FA7207 /* ConversationCell.xib */; };
 		3A86F7DC1C692E8E00749A1F /* UIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A86F7DB1C692E8E00749A1F /* UIHelpers.swift */; };
+		3A97C99E1C6E7569004111D2 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A97C99D1C6E7569004111D2 /* BadgeView.swift */; };
+		3A97C9A01C6E76C5004111D2 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A97C99F1C6E76C5004111D2 /* UIColorExtensions.swift */; };
+		3A97C9A21C6E7A37004111D2 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A97C9A11C6E7A37004111D2 /* UIViewExtensions.swift */; };
+		3A97C9A61C6E9570004111D2 /* ConversationBackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A97C9A51C6E9570004111D2 /* ConversationBackView.swift */; };
+		3A97C9AA1C6E9C1D004111D2 /* OrganizationsBarButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A97C9A91C6E9C1D004111D2 /* OrganizationsBarButtonView.swift */; };
+		3A97C9AC1C6EA54D004111D2 /* OrganizationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A97C9AB1C6EA54D004111D2 /* OrganizationsViewController.swift */; };
+		3A97C9AE1C6EA6CD004111D2 /* OrganizationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A97C9AD1C6EA6CD004111D2 /* OrganizationCell.swift */; };
+		3A97C9B01C6EA72C004111D2 /* OrganizationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A97C9AF1C6EA72C004111D2 /* OrganizationCell.xib */; };
 		9658FAD621425908B81BCEAA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C22EFEBBCC4C23FE020EF05B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +63,14 @@
 		3A27137C1C6D0A9C00FA7207 /* ConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
 		3A27137E1C6D268D00FA7207 /* ConversationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConversationCell.xib; sourceTree = "<group>"; };
 		3A86F7DB1C692E8E00749A1F /* UIHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIHelpers.swift; sourceTree = "<group>"; };
+		3A97C99D1C6E7569004111D2 /* BadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
+		3A97C99F1C6E76C5004111D2 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		3A97C9A11C6E7A37004111D2 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		3A97C9A51C6E9570004111D2 /* ConversationBackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationBackView.swift; sourceTree = "<group>"; };
+		3A97C9A91C6E9C1D004111D2 /* OrganizationsBarButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationsBarButtonView.swift; sourceTree = "<group>"; };
+		3A97C9AB1C6EA54D004111D2 /* OrganizationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationsViewController.swift; sourceTree = "<group>"; };
+		3A97C9AD1C6EA6CD004111D2 /* OrganizationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationCell.swift; sourceTree = "<group>"; };
+		3A97C9AF1C6EA72C004111D2 /* OrganizationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrganizationCell.xib; sourceTree = "<group>"; };
 		59D3C5950AF0C320E871F75F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A614A8D9BB379207DE3B1997 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C22EFEBBCC4C23FE020EF05B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +144,8 @@
 			children = (
 				3A27137A1C6D069A00FA7207 /* ConversationCell.swift */,
 				3A27137E1C6D268D00FA7207 /* ConversationCell.xib */,
+				3A97C9AD1C6EA6CD004111D2 /* OrganizationCell.swift */,
+				3A97C9AF1C6EA72C004111D2 /* OrganizationCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -137,6 +155,8 @@
 			children = (
 				3A01C2A31C62CDAC00D54361 /* Constants.swift */,
 				3A86F7DB1C692E8E00749A1F /* UIHelpers.swift */,
+				3A97C99F1C6E76C5004111D2 /* UIColorExtensions.swift */,
+				3A97C9A11C6E7A37004111D2 /* UIViewExtensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -147,6 +167,7 @@
 				3A01C2A11C62CA2200D54361 /* LoginViewController.swift */,
 				3A2713781C6D045500FA7207 /* InboxViewController.swift */,
 				3A27137C1C6D0A9C00FA7207 /* ConversationViewController.swift */,
+				3A97C9AB1C6EA54D004111D2 /* OrganizationsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -154,6 +175,9 @@
 		3A01C2A01C62C9FA00D54361 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3A97C99D1C6E7569004111D2 /* BadgeView.swift */,
+				3A97C9A51C6E9570004111D2 /* ConversationBackView.swift */,
+				3A97C9A91C6E9C1D004111D2 /* OrganizationsBarButtonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -283,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A27137F1C6D268D00FA7207 /* ConversationCell.xib in Resources */,
+				3A97C9B01C6EA72C004111D2 /* OrganizationCell.xib in Resources */,
 				3A01C2781C62C64A00D54361 /* LaunchScreen.storyboard in Resources */,
 				3A01C2751C62C64A00D54361 /* Assets.xcassets in Resources */,
 				3A01C2731C62C64A00D54361 /* Main.storyboard in Resources */,
@@ -358,12 +383,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A97C99E1C6E7569004111D2 /* BadgeView.swift in Sources */,
+				3A97C9A61C6E9570004111D2 /* ConversationBackView.swift in Sources */,
+				3A97C9A21C6E7A37004111D2 /* UIViewExtensions.swift in Sources */,
+				3A97C9AC1C6EA54D004111D2 /* OrganizationsViewController.swift in Sources */,
+				3A97C9A01C6E76C5004111D2 /* UIColorExtensions.swift in Sources */,
 				3A27137D1C6D0A9C00FA7207 /* ConversationViewController.swift in Sources */,
+				3A97C9AE1C6EA6CD004111D2 /* OrganizationCell.swift in Sources */,
 				3A2713791C6D045500FA7207 /* InboxViewController.swift in Sources */,
 				3A01C2A21C62CA2200D54361 /* LoginViewController.swift in Sources */,
 				3A27137B1C6D069A00FA7207 /* ConversationCell.swift in Sources */,
 				3A01C26E1C62C64A00D54361 /* AppDelegate.swift in Sources */,
 				3A01C2A41C62CDAC00D54361 /* Constants.swift in Sources */,
+				3A97C9AA1C6E9C1D004111D2 /* OrganizationsBarButtonView.swift in Sources */,
 				3A86F7DC1C692E8E00749A1F /* UIHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
