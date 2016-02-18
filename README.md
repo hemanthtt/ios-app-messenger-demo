@@ -135,7 +135,6 @@ You can pass an NSData object or a file path to the data you wish to upload as t
   rosterEntry:rosterEntry 
   lifetime:60 
   deleteOnRead:NO
-  attachmentData:"your_tigertext_agent"
   attachmentData:(NSData *)attachmentData
   success:nil 
   failure:nil];
