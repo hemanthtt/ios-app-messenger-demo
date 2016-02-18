@@ -122,28 +122,21 @@ To send a message with attachments, please specify the mime type.
 You can pass an NSData object or a file path to the data you wish to upload as the attachment (using the file path for larger files).  The max attachment size is currently 10MB.
 
 ```objc
-- (void)sendMessage:(NSString *)message
-rosterEntry:(TTRosterEntry *)aEntry
-lifetime:(int)aLifetime
-deleteOnRead:(BOOL)dorBool
-attachmentPath:(NSString *)attachmentPath
-attachmentMimeType:(NSString *)aMimeType
-success:(void(^)(TTMessage *newMessage))success
-failure:(void (^)(NSError * error))failure;
+[[TTKit sharedInstance] sendMessage:message 
+  rosterEntry:rosterEntry 
+  lifetime:60 
+  deleteOnRead:NO
+  attachmentPath:"attachment_path_name"
+  attachmentMimeType:"attachment_mime_type"
+  success:nil 
+  failure:nil];
 
-- (void)sendMessage:(NSString *)message
-rosterEntry:(TTRosterEntry *)entry
-lifetime:(int)aLifetime
-deleteOnRead:(BOOL)dorBool
-attachmentData:(NSData *)attachmentData
-attachmentMimeType:(NSString *)aMimeType
-success:(void(^)(TTMessage *newMessage))success
-failure:(void (^)(NSError * error))failure;
-
-- (void)sendMessageToUsers:(NSArray *)users
-message:(NSString *)message
-lifetime:(int)aLifetime
-deleteOnRead:(BOOL)dorBool
-success:(void(^)(TTRosterEntry rosterEntry ,TTMessage newMessage))success
-failure:(void (^)(NSError * error))failure;
+[[TTKit sharedInstance] sendMessage:message 
+  rosterEntry:rosterEntry 
+  lifetime:60 
+  deleteOnRead:NO
+  attachmentData:"your_tigertext_agent"
+  attachmentData:(NSData *)attachmentData
+  success:nil 
+  failure:nil];
 ```
