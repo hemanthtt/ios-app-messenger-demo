@@ -10,21 +10,19 @@ If you have any questions, comments, or issues related to this repository then p
 ________________________________________
 Import the the TTKit library header in your AppDelegate.m.
 
-Objective-C
-
-```sh
+```objc
 #import <TTKit/TTKit.h> 
 ```
 
 Initialize the SDK in your AppDelegate’s application:
 
-```sh
+```objc
  [[TTKit sharedInstance] initializeWithAgent:"your_tigertext_agent" environment:TTKitEnvironmentProduction];
 ```
 
 Please validate TTKit is connected using the following command:
 
-```sh
+```objc
 [[TTKit sharedInstance] isUserConnected]
 ```
 
@@ -32,9 +30,7 @@ Please validate TTKit is connected using the following command:
 
 When you launch the iOS SDK demo app, you’ll be presented with a TigerTest login screen. The following code authenticates the user and effectively logs them in.
 
-Objective-C
-
-```sh
+```objc
 [[TTKit sharedInstance] loginWithUserId:@"username" password:@"password" 
 
   success:^(TTUser *user) { 
@@ -47,7 +43,7 @@ Objective-C
 
 To logout from TTKit and deauthenticate the user, please use the following command:
 
-```sh
+```objc
 [[TTKit sharedInstance] logout]
 ```
 
@@ -59,7 +55,7 @@ Applications are notified of typing indicator events via NSNotification objects 
 
 Applications should register as an observer of the LYRConversationDidReceiveTypingIndicatorNotification notification to be notified when another user is typing.
 
-```sh
+```objc
 kTTKitUnreadMessagesCountChangedNotification
 kTTKitWillLogoutNotification
 kTTKitDidReceiveRemoteLogoutNotification
@@ -90,18 +86,14 @@ After authenticating, the SDK will fetch all the recent conversations associated
 
 For example, if you take a look at the iOS demo app, we use the following
 
-Objective-C
-```sh
 NSFetchResultsController for conversations:
-
+```objc
 NSFetchResultsController  *fetchController = [[TTKit sharedInstance] rosterFetchControllerWithDelegate:self]; 
-
 NSArray *conversationObjects = [fetchController fetchedObjects];
-To receive updates from the fetchController, be sure to implement the following methods:
 ```
 
-Objective-C
-```sh
+To receive updates from the fetchController, be sure to implement the following methods:
+```objc
 (void)controllerDidChangeContent:(NSFetchedResultsController *) controller 
 
 (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject 
@@ -116,8 +108,7 @@ For accounts with a large number of messages, it may take a little time to downl
 
 If you have completed sending a TigerText message to Echobot, you should be able to see the conversation and send another message via the iOS SDK demo app. There are several ways to send a message. The following snippet is one way to send a message that has a lifetime of 60 minutes.
 
-Objective-C
-```sh
+```objc
 [[TTKit sharedInstance] sendMessage:message 
   rosterEntry:rosterEntry 
   lifetime:60 
@@ -126,13 +117,11 @@ Objective-C
   failure:nil];
  ```
  
- To send a message with attachments, please specify the mime type.
+To send a message with attachments, please specify the mime type.
 
-You can pass an NSData object or a file path to the data you wish to upload as the attachment (using the file path for larger files).
+You can pass an NSData object or a file path to the data you wish to upload as the attachment (using the file path for larger files).  The max attachment size is currently 10MB.
 
-The max attachment size is currently 10MB.
-
-```sh
+```objc
 - (void)sendMessage:(NSString *)message
 rosterEntry:(TTRosterEntry *)aEntry
 lifetime:(int)aLifetime
