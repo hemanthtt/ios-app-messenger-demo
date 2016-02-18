@@ -126,8 +126,8 @@ You can pass an NSData object or a file path to the data you wish to upload as t
   rosterEntry:rosterEntry 
   lifetime:60 
   deleteOnRead:NO
-  attachmentPath:"attachment_path_name"
-  attachmentMimeType:"attachment_mime_type"
+  attachmentPath:@"filePathUrl"
+  attachmentMimeType:@"image/jpeg""
   success:nil 
   failure:nil];
 
@@ -135,7 +135,7 @@ You can pass an NSData object or a file path to the data you wish to upload as t
   rosterEntry:rosterEntry 
   lifetime:60 
   deleteOnRead:NO
-  attachmentData:(NSData *)attachmentData
+  attachmentData:data
   success:nil 
   failure:nil];
 ```
