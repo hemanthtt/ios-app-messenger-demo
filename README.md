@@ -49,35 +49,6 @@ To logout from TTKit and deauthenticate the user, please use the following comma
 
 Logging out of TTKit will delete all local data including message and attachments, it will also deauthenticate the user's key/secret pair.
 
-## NS Notifications 
-
-Applications are notified of typing indicator events via NSNotification objects broadcast via the default NSNotificationCenter. 
-
-Applications should register as an observer of the LYRConversationDidReceiveTypingIndicatorNotification notification to be notified when another user is typing.
-
-```objc
-kTTKitUnreadMessagesCountChangedNotification
-kTTKitWillLogoutNotification
-kTTKitDidReceiveRemoteLogoutNotification
-
-[[NSNotificationCenter defaultCenter] addObserver:self
-selector:@selector(refreshUnreadCount:)
-
-name:kTTKitUnreadMessagesCountChangedNotification
-object:nil];
-    
-[[NSNotificationCenter defaultCenter] addObserver:self
-selector:@selector(didLogout)
-name:kTTKitWillLogoutNotification
-object:nil];
-    
-[[NSNotificationCenter defaultCenter] addObserver:self
-
-selector:@selector(didReceiveRemoteLogoutNotification)
-
-name:kTTKitDidReceiveRemoteLogoutNotification
-object:nil];
-
 ```
 
 ## Getting Recent Conversations
@@ -101,8 +72,6 @@ To receive updates from the fetchController, be sure to implement the following 
   forChangeType:(NSFetchedResultsChangeType)type 
   newIndexPath:(NSIndexPath *)newIndexPath
 ```
-
-For accounts with a large number of messages, it may take a little time to download and process these messages after authenticating. We have provided a simple progress bar in the iOS SDK demo app which you can choose to use inside your own app.
 
 ## Send a Message
 
@@ -136,6 +105,7 @@ You can pass an NSData object or a file path to the data you wish to upload as t
   lifetime:60 
   deleteOnRead:NO
   attachmentData:data
+  attachmentMimeType:@"image/jpeg""
   success:nil 
   failure:nil];
 ```
