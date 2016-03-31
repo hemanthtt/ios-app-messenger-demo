@@ -253,19 +253,14 @@ const NSUInteger MessagesPerPage = 30;
         return;
     }
     
-    [[TTKit sharedInstance] sendMessage:text
-                            rosterEntry:self.rosterEntry
-                               lifetime:kMessageTimeToLive
-                           deleteOnRead:kDeleteOnRead
-                         attachmentData:nil
-                     attachmentMimeType:nil
-                                success:^(TTMessage *newMessage) {
+    TTMessageRequest *messageRequest = [[TTMessageRequest alloc] initWithRecipientToken:self.rosterEntry.token];
+    messageRequest.messageText = text;
+    messageRequest.timeToLive = kMessageTimeToLive;
+    messageRequest.deleteOnRead = kDeleteOnRead;
+    [[TTKit sharedInstance] sendMessageWithRequest:messageRequest completion:^(TTMessage *message, NSError *error) {
+        
+    }];
 
-                                }
-                                failure:^(NSError *error) {
-
-                                }];
-    
     self.inputMessageTextView.text = @"";
 }
 
