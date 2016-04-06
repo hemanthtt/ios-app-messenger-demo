@@ -253,7 +253,7 @@ const NSUInteger MessagesPerPage = 30;
         return;
     }
     
-    TTMessageRequest *messageRequest = [[TTMessageRequest alloc] initWithRecipientToken:self.rosterEntry.token];
+    TTMessageRequest *messageRequest = [[TTMessageRequest alloc] initWithRecipientToken:self.rosterEntry.target.token];
     messageRequest.messageText = text;
     messageRequest.timeToLive = kMessageTimeToLive;
     messageRequest.deleteOnRead = kDeleteOnRead;

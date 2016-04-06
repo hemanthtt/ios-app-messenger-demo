@@ -77,35 +77,32 @@ To receive updates from the fetchController, be sure to implement the following 
 
 If you have completed sending a TigerText message to Echobot, you should be able to see the conversation and send another message via the iOS SDK demo app. There are several ways to send a message. The following snippet is one way to send a message that has a lifetime of 60 minutes.
 
+First Create a TTMessageRequest object
 ```objc
-[[TTKit sharedInstance] sendMessage:message 
-  rosterEntry:rosterEntry 
-  lifetime:60 
-  deleteOnRead:NO 
-  success:nil 
-  failure:nil];
- ```
- 
+
+TTMessageRequest *messageRequest = [[TTMessageRequest alloc] initWithRecipientToken:self.rosterEntry.target.token];
+messageRequest.messageText = text;
+messageRequest.timeToLive = kMessageTimeToLive;
+messageRequest.deleteOnRead = kDeleteOnRead;
+```
+Then Request TTKit to Process the Request
+```objc
+
+[[TTKit sharedInstance] sendMessageWithRequest:messageRequest
+completion:^(TTMessage *message, NSError *error) {
+
+}];
+
+```
 To send a message with attachments, please specify the mime type.
 
 You can pass an NSData object or a file path to the data you wish to upload as the attachment (using the file path for larger files).  The max attachment size is currently 10MB.
 
 ```objc
-[[TTKit sharedInstance] sendMessage:message 
-  rosterEntry:rosterEntry 
-  lifetime:60 
-  deleteOnRead:NO
-  attachmentPath:@"filePathUrl"
-  attachmentMimeType:@"image/jpeg""
-  success:nil 
-  failure:nil];
+messageRequest.attachmentData = data;
+messageRequest.attachmentMimeType = @"image/jpeg";
 
-[[TTKit sharedInstance] sendMessage:message 
-  rosterEntry:rosterEntry 
-  lifetime:60 
-  deleteOnRead:NO
-  attachmentData:data
-  attachmentMimeType:@"image/jpeg""
-  success:nil 
-  failure:nil];
+messageRequest.attachmentFilePath = @"attachment_file_path";
+messageRequest.attachmentMimeType = @"image/jpeg";
 ```
+
