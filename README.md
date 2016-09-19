@@ -49,7 +49,6 @@ To logout from TTKit and deauthenticate the user, please use the following comma
 
 Logging out of TTKit will delete all local data including message and attachments, it will also deauthenticate the user's key/secret pair.
 
-```
 
 ## Getting Recent Conversations
 
