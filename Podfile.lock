@@ -1,10 +1,12 @@
 PODS:
-  - TigerConnect (1.4)
+  - TigerConnect (1.5)
 
 DEPENDENCIES:
-  - TigerConnect
+  - TigerConnect (~> 1.5)
 
 SPEC CHECKSUMS:
-  TigerConnect: 665e8154dd9d815c8c978d6fad82c35187bef8ed
+  TigerConnect: e8ee3aeea3a13ae934b93631b49558dac889f312
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 34ee29404ada830be9cc5e065d24e8e8b731e2fb
+
+COCOAPODS: 1.0.1

@@ -36,7 +36,7 @@
 		3A01C2501C61D99D00D54361 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A01C2481C61D92700D54361 /* LaunchScreen.storyboard */; };
 		3A01C2511C61D9A000D54361 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A01C24A1C61D92700D54361 /* Main.storyboard */; };
 		3A01C2541C61DB3300D54361 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C2531C61DB3300D54361 /* AppDelegate.m */; };
-		CE82055B08D04E5B059E9234 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3D65308212112D46C07A9D /* libPods.a */; };
+		593E20AC612AC4F61639A550 /* libPods-TigerConnect Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 285BEF870D1269325CACA7E6 /* libPods-TigerConnect Demo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0ACBDB82E3D7F543E1BB9C5E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		1A86BC512114315DEF756D12 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		285BEF870D1269325CACA7E6 /* libPods-TigerConnect Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TigerConnect Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A01C1601C61307E00D54361 /* TigerConnect Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TigerConnect Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A01C1641C61307E00D54361 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3A01C1791C61307E00D54361 /* TigerConnect DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TigerConnect DemoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,7 +113,8 @@
 		3A01C24B1C61D92700D54361 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3A01C2521C61DB3300D54361 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3A01C2531C61DB3300D54361 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		9B3D65308212112D46C07A9D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB263D0977E98466D2F7F0D1 /* Pods-TigerConnect Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TigerConnect Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TigerConnect Demo/Pods-TigerConnect Demo.debug.xcconfig"; sourceTree = "<group>"; };
+		EFA3F0F9B39A616EA9B54565 /* Pods-TigerConnect Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TigerConnect Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-TigerConnect Demo/Pods-TigerConnect Demo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE82055B08D04E5B059E9234 /* libPods.a in Frameworks */,
+				593E20AC612AC4F61639A550 /* libPods-TigerConnect Demo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,8 +148,8 @@
 			children = (
 				3A01C1621C61307E00D54361 /* TigerConnect Demo */,
 				3A01C1611C61307E00D54361 /* Products */,
-				40AF792FACAB12BF67306722 /* Pods */,
-				92C4ED489C3B21AC8311E26E /* Frameworks */,
+				D815D3010D471A914E5E4291 /* Pods */,
+				EEDED4F5961FA95D20087C8A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -262,19 +262,19 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		40AF792FACAB12BF67306722 /* Pods */ = {
+		D815D3010D471A914E5E4291 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1A86BC512114315DEF756D12 /* Pods.debug.xcconfig */,
-				0ACBDB82E3D7F543E1BB9C5E /* Pods.release.xcconfig */,
+				CB263D0977E98466D2F7F0D1 /* Pods-TigerConnect Demo.debug.xcconfig */,
+				EFA3F0F9B39A616EA9B54565 /* Pods-TigerConnect Demo.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		92C4ED489C3B21AC8311E26E /* Frameworks */ = {
+		EEDED4F5961FA95D20087C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9B3D65308212112D46C07A9D /* libPods.a */,
+				285BEF870D1269325CACA7E6 /* libPods-TigerConnect Demo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -286,12 +286,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A01C18D1C61307E00D54361 /* Build configuration list for PBXNativeTarget "TigerConnect Demo" */;
 			buildPhases = (
-				D0141697386DEB02D34E7E47 /* Check Pods Manifest.lock */,
+				1FF321DB8B7B307558D5A9B2 /* [CP] Check Pods Manifest.lock */,
 				3A01C15C1C61307E00D54361 /* Sources */,
 				3A01C15D1C61307E00D54361 /* Frameworks */,
 				3A01C15E1C61307E00D54361 /* Resources */,
-				93440E05AC49CE9D24C9BB62 /* Embed Pods Frameworks */,
-				EA2486CDCB0D91C9119D277D /* Copy Pods Resources */,
+				4DB8E298F462298F45718ECF /* [CP] Embed Pods Frameworks */,
+				C7911E478D4720F93AC80CAB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -413,29 +413,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		93440E05AC49CE9D24C9BB62 /* Embed Pods Frameworks */ = {
+		1FF321DB8B7B307558D5A9B2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D0141697386DEB02D34E7E47 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -443,19 +428,34 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		EA2486CDCB0D91C9119D277D /* Copy Pods Resources */ = {
+		4DB8E298F462298F45718ECF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TigerConnect Demo/Pods-TigerConnect Demo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7911E478D4720F93AC80CAB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TigerConnect Demo/Pods-TigerConnect Demo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -622,7 +622,7 @@
 		};
 		3A01C18E1C61307E00D54361 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1A86BC512114315DEF756D12 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = CB263D0977E98466D2F7F0D1 /* Pods-TigerConnect Demo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ENABLE_BITCODE = NO;
@@ -673,7 +673,7 @@
 		};
 		3A01C18F1C61307E00D54361 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0ACBDB82E3D7F543E1BB9C5E /* Pods.release.xcconfig */;
+			baseConfigurationReference = EFA3F0F9B39A616EA9B54565 /* Pods-TigerConnect Demo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ENABLE_BITCODE = NO;
