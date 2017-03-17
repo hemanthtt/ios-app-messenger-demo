@@ -10,7 +10,7 @@ import Foundation
 
 public struct Constants {
     
-    static let defaultStatusBarStyle = UIStatusBarStyle.LightContent
+    static let defaultStatusBarStyle = UIStatusBarStyle.lightContent
     
     struct Colors {
         static let leadingColor = UIColor.init(colorLiteralRed: 217.0/255.0, green: 42.0/255.0, blue: 37.0/255.0, alpha: 1.0)
@@ -24,24 +24,24 @@ public struct Constants {
     }
     
     struct Fonts {
-        static let messageTextFont = UIFont.systemFontOfSize(16)
-        static let bangTextFont = UIFont.systemFontOfSize(12)
-        static let messageInputViewFont = UIFont.systemFontOfSize(16)
+        static let messageTextFont = UIFont.systemFont(ofSize: 16)
+        static let bangTextFont = UIFont.systemFont(ofSize: 12)
+        static let messageInputViewFont = UIFont.systemFont(ofSize: 16)
         
-        static func lightFont(fontSize: CGFloat) -> UIFont {
-            return UIFont.systemFontOfSize(fontSize, weight: UIFontWeightLight)
+        static func lightFont(_ fontSize: CGFloat) -> UIFont {
+            return UIFont.systemFont(ofSize: fontSize, weight: UIFontWeightLight)
         }
         
-        static func regularFont(fontSize: CGFloat) -> UIFont {
-            return UIFont.systemFontOfSize(fontSize)
+        static func regularFont(_ fontSize: CGFloat) -> UIFont {
+            return UIFont.systemFont(ofSize: fontSize)
         }
         
-        static func mediumFont(fontSize: CGFloat) -> UIFont {
-            return UIFont.systemFontOfSize(fontSize, weight: UIFontWeightMedium)
+        static func mediumFont(_ fontSize: CGFloat) -> UIFont {
+            return UIFont.systemFont(ofSize: fontSize, weight: UIFontWeightMedium)
         }
         
-        static func boldFont(fontSize: CGFloat) -> UIFont {
-            return UIFont.systemFontOfSize(fontSize, weight: UIFontWeightBold)
+        static func boldFont(_ fontSize: CGFloat) -> UIFont {
+            return UIFont.systemFont(ofSize: fontSize, weight: UIFontWeightBold)
         }
     }
 }

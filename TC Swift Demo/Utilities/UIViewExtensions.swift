@@ -11,7 +11,7 @@ import Foundation
 extension UIView {
     
     func firstAvailableViewController() -> UIViewController? {
-        let nextResponder = self.nextResponder()
+        let nextResponder = self.next
         if nextResponder is UIViewController {
             return nextResponder as? UIViewController
         } else if nextResponder is UIView {
@@ -24,7 +24,7 @@ extension UIView {
  
     var top: CGFloat {
         get {
-           return CGRectGetMinY(self.frame)
+           return self.frame.minY
         }
         set {
             var viewFrame = self.frame
@@ -35,7 +35,7 @@ extension UIView {
     
     var left: CGFloat {
         get {
-           return CGRectGetMinX(self.frame)
+           return self.frame.minX
         }
         set {
             var viewFrame = self.frame
@@ -46,7 +46,7 @@ extension UIView {
 
     var right: CGFloat {
         get {
-           return CGRectGetMaxX(self.frame)
+           return self.frame.maxX
         }
         set {
             self.left = newValue - self.width
@@ -55,7 +55,7 @@ extension UIView {
 
     var bottom: CGFloat {
         get {
-           return CGRectGetMaxY(self.frame)
+           return self.frame.maxY
         }
         set {
             self.top = newValue - self.height
@@ -64,7 +64,7 @@ extension UIView {
     
     var width: CGFloat {
         get {
-           return CGRectGetWidth(self.bounds)
+           return self.bounds.width
         }
         set {
             var viewFrame = self.frame
@@ -75,7 +75,7 @@ extension UIView {
     
     var height: CGFloat {
         get {
-           return CGRectGetHeight(self.bounds)
+           return self.bounds.height
         }
         set {
             var viewFrame = self.frame
@@ -86,25 +86,25 @@ extension UIView {
     
     var centerX: CGFloat {
         get {
-            return CGRectGetMidX(self.frame)
+            return self.frame.midX
         }
         set {
-            self.center = CGPointMake(newValue, self.centerY)
+            self.center = CGPoint(x: newValue, y: self.centerY)
         }
     }
     
     var centerY: CGFloat {
         get {
-            return CGRectGetMidY(self.frame)
+            return self.frame.midY
         }
         set {
-            self.center = CGPointMake(self.centerX, newValue)
+            self.center = CGPoint(x: self.centerX, y: newValue)
         }
     }
     
     func centerInSuperview() {
         if (self.superview != nil) {
-            self.center = CGPointMake(self.superview!.width / 2.0, self.superview!.height / 2.0)
+            self.center = CGPoint(x: self.superview!.width / 2.0, y: self.superview!.height / 2.0)
         }
     }
     
@@ -123,10 +123,10 @@ extension UIView {
     
     var borderColor: UIColor {
         get {
-            return UIColor.init(CGColor: self.layer.borderColor!)
+            return UIColor.init(cgColor: self.layer.borderColor!)
         }
         set {
-            self.layer.borderColor = newValue.CGColor
+            self.layer.borderColor = newValue.cgColor
         }
     }
     

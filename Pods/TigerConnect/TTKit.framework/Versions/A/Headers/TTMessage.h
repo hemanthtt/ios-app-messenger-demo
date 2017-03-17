@@ -2,8 +2,8 @@
 //  TTMessage.h
 //  TTKit
 //
-//  Created by Oren Zitoun on 7/28/14.
-//  Copyright (c) 2014 TigerText, Inc. All rights reserved.
+//  Created by Oren Zitoun on 2/24/16.
+//  Copyright © 2016 TigerText, Inc. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -12,9 +12,17 @@
 typedef NS_ENUM(NSInteger, TTMessageType) {
     TTMessageTypeNormal = 0,
     TTMessageTypeAutoforwardNotification,
+    TTMessageTypeEmptyRoleNotification,
 };
 
-@class TTAttachmentDescriptor, TTGroup, TTMessageStatus, TTMetadata, TTParty, TTRosterEntry, TTUser;
+typedef NS_ENUM(NSInteger, TTMessagePriority) {
+    TTMessagePriorityNormal = 0,
+    TTMessagePriorityHigh = 1,
+};
+
+@class TTAttachmentDescriptor, TTGroup, TTMessageStatus, TTMetadata, TTParty, TTRosterEntry, TTUser, TTRole;
+
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A TTMessage object represents a message.
@@ -57,7 +65,7 @@ typedef NS_ENUM(NSInteger, TTMessageType) {
 @property (nonatomic, retain) NSNumber * forward;
 
 /**
- *  Int16 value, mapped to TTAutoforward enumeration.
+ *  Int16 value, mapped to TTAutoforwardType enumeration.
  */
 @property (nonatomic, retain) NSNumber * autoforward;
 
@@ -69,7 +77,7 @@ typedef NS_ENUM(NSInteger, TTMessageType) {
 /**
  *  Local token used until TTMessage is saved to server.
  */
-@property (nonatomic, retain) NSString * localToken;
+@property (nonatomic, retain, nullable) NSString * localToken;
 
 /**
  *  Organization token to which the message is related.
@@ -122,7 +130,7 @@ typedef NS_ENUM(NSInteger, TTMessageType) {
 @property (nonatomic, retain) NSString * token;
 
 /**
- *  TTMessage’s time to live in seconds.
+ *  TTMessage’s time to live in minutes.
  */
 @property (nonatomic, retain) NSNumber * ttl;
 
@@ -134,22 +142,22 @@ typedef NS_ENUM(NSInteger, TTMessageType) {
 /**
  *  An NSOrderedSet containing all TTAttachmentDescriptors, which describe all attachments to this message.
  */
-@property (nonatomic, retain) NSOrderedSet *attachmentDescriptors;
+@property (nonatomic, retain, nullable) NSOrderedSet *attachmentDescriptors;
 
 /**
  *  The related group to this message.
  */
-@property (nonatomic, retain) TTGroup *group;
+@property (nonatomic, retain, nullable) TTGroup *group;
 
 /**
  *  An NSSet containing all status event for a group message with more than 1 receipent.
  */
-@property (nonatomic, retain) NSSet *messageStatus;
+@property (nonatomic, retain, nullable) NSSet *messageStatus;
 
 /**
  *  All metadata related to this message.
  */
-@property (nonatomic, retain) NSSet *metadata;
+@property (nonatomic, retain, nullable) NSSet *metadata;
 
 /**
  *  The recipient. Can be either a TTGroup or a TTUser.
@@ -169,25 +177,35 @@ typedef NS_ENUM(NSInteger, TTMessageType) {
 /**
  *  The original sender of a forwarded message.
  */
-@property (nonatomic, retain) TTUser *originalSender;
+@property (nonatomic, retain, nullable) TTUser *originalSender;
 
 /**
  *  The user of an autoforwarded message.
  */
-@property (nonatomic, retain) TTUser *autoforwardUser;
+@property (nonatomic, retain, nullable) TTUser *autoforwardUser;
+
+/**
+ *  The message sender's role.
+ */
+@property (nonatomic, retain, nullable) TTRole *senderRole;
 
 /**
  *  Placeholder string, not being used
  */
-@property (nonatomic, retain) NSString * groupStatus;
+@property (nonatomic, retain, nullable) NSString *groupStatus;
 
 /**
  *  Indicates the type of message (0 = normal, 1 = DND Auto-Forward notification)
  */
-@property (nonatomic, retain) NSNumber * messageType;
+@property (nonatomic, retain) NSNumber *messageType;
 
 /**
- *  Indicates message was a system-generated automated message, 
+ *  Indicates if the message is of higher priority (0 = normal, 1 = High priority)
+ */
+@property (nullable, nonatomic, retain) NSNumber *priority;
+
+/**
+ *  Indicates message was a system-generated automated message,
  *  Example: DND Auto-Forward reciever set/unset notifications.
  */
 @property (readonly) BOOL isAutomatedMessage;
@@ -227,3 +245,5 @@ typedef NS_ENUM(NSInteger, TTMessageType) {
 - (void)removeMetadata:(NSSet *)values;
 
 @end
+
+NS_ASSUME_NONNULL_END

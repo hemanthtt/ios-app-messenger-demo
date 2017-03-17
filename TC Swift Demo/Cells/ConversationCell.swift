@@ -30,13 +30,17 @@ class ConversationCell: UITableViewCell {
     
     var item: TTRosterEntry? {
         didSet {
-            self.conversationNameLabel.text = item?.target.displayName
+            self.conversationNameLabel.text = item?.target?.displayName
             if let latestMessage = item?.latestMessage {
                 
                 if latestMessage.body.characters.count > 0 {
                     self.lastMessageLabel.text = latestMessage.body
                 } else {
-                    self.lastMessageLabel.text = lastMessageMessageStringForAttachmet(latestMessage.attachmentDescriptors.firstObject as! TTAttachmentDescriptor)
+                    if let attachmentDescriptor = latestMessage.attachmentDescriptors?.firstObject as? TTAttachmentDescriptor  {
+                        self.lastMessageLabel.text = lastMessageMessageStringForAttachmet(attachmentDescriptor)
+                    } else {
+                        self.lastMessageLabel.text = nil
+                    }
                 }
                 
                 if TTKit.sharedInstance().isUserLocalUser(latestMessage.sender as! TTUser) {
@@ -49,27 +53,27 @@ class ConversationCell: UITableViewCell {
                 self.lastMessageLabel.text = " "
             }
 
-            self.avatar.setPathToNetworkImage(item?.target.avatarURL, forDisplaySize: self.avatar.frame.size, contentMode: UIViewContentMode.ScaleAspectFill, circleCrop: true)
+            self.avatar.setPathToNetworkImage(item?.target?.avatarURL, forDisplay: self.avatar.frame.size, contentMode: UIViewContentMode.scaleAspectFill, circleCrop: true)
         }
     }
     
-    func lastMessageMessageStringForAttachmet(attachment: TTAttachmentDescriptor) -> String? {
+    func lastMessageMessageStringForAttachmet(_ attachment: TTAttachmentDescriptor) -> String? {
         var string: String?
-        if TTAttachmentType(rawValue: attachment.type.unsignedLongValue) == .Image {
+        if TTAttachmentType(rawValue: attachment.type.uintValue) == .image {
             string = "Image Message"
-        } else if TTAttachmentType(rawValue: attachment.type.unsignedLongValue) == .Audio {
+        } else if TTAttachmentType(rawValue: attachment.type.uintValue) == .audio {
             string = "Audio Message"
-        } else if TTAttachmentType(rawValue: attachment.type.unsignedLongValue) == .Video {
+        } else if TTAttachmentType(rawValue: attachment.type.uintValue) == .video {
             string = "Video Message"
-        } else if TTAttachmentType(rawValue: attachment.type.unsignedLongValue) == .Document {
+        } else if TTAttachmentType(rawValue: attachment.type.uintValue) == .document {
             string = "Document Message"
         }
         return string
     }
     
-    func setLastMessageStatus(status: String?) {
+    func setLastMessageStatus(_ status: String?) {
         var text = " "
-        var color = UIColor.whiteColor()
+        var color = UIColor.white
         
         if status == kTTKitMessageStatusRead {
             text = "Read";
@@ -94,17 +98,17 @@ class ConversationCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         self.avatar.prepareForReuse()
-        self.unreadBadgeView.hidden = true
+        self.unreadBadgeView.isHidden = true
         self.unreadBadgeCountLabel.text = ""
     }
     
-    override func setHighlighted(highlighted: Bool, animated: Bool) {
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)
-        self.backgroundColor = highlighted ? Constants.Colors.defaultLightGrayColor : UIColor.whiteColor()
+        self.backgroundColor = highlighted ? Constants.Colors.defaultLightGrayColor : UIColor.white
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        self.backgroundColor = selected ? Constants.Colors.defaultLightGrayColor : UIColor.whiteColor()
+        self.backgroundColor = selected ? Constants.Colors.defaultLightGrayColor : UIColor.white
     }
 }

@@ -11,25 +11,25 @@ import UIKit
 class InboxViewController: UITableViewController, NSFetchedResultsControllerDelegate, OrganizationsBarButtonViewDelegate {
     
     var ttKit = TTKit.sharedInstance()
-    var inboxFetchedResultsController: NSFetchedResultsController!
+    var inboxFetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>!
     var shouldReloadTable = false
     var organizationBarButtonView: OrganizationsBarButtonView!
     
-    let conversationCellIdentifier = String(ConversationCell)
+    let conversationCellIdentifier = "ConversationCell"
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func awakeFromNib() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("currentOrganizationChanged:"), name: kTTKitCurrentOrganizationChangeNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("organizationUpdated:"), name: kTTKitOrganizationsDidUpdateNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(InboxViewController.currentOrganizationChanged(_:)), name: NSNotification.Name.ttKitCurrentOrganizationChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(InboxViewController.organizationUpdated(_:)), name: NSNotification.Name.ttKitOrganizationsDidUpdate, object: nil)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if self.tableView.indexPathForSelectedRow != nil {
-            self.tableView.deselectRowAtIndexPath(self.tableView.indexPathForSelectedRow!, animated: true)
+            self.tableView.deselectRow(at: self.tableView.indexPathForSelectedRow!, animated: true)
         }
         self.tableView.reloadData()
     }
@@ -38,26 +38,26 @@ class InboxViewController: UITableViewController, NSFetchedResultsControllerDele
         super.viewDidLoad()
         resetFetchedResultsController()
 
-        self.tableView.registerNib(UINib.init(nibName: conversationCellIdentifier, bundle: nil), forCellReuseIdentifier: conversationCellIdentifier)
-        self.tableView.tableFooterView = UIView.init(frame: CGRectZero)
-        self.navigationItem.title = ttKit.currentOrganizationName()
+        self.tableView.register(UINib.init(nibName: conversationCellIdentifier, bundle: nil), forCellReuseIdentifier: conversationCellIdentifier)
+        self.tableView.tableFooterView = UIView.init(frame: CGRect.zero)
+        self.navigationItem.title = ttKit?.currentOrganizationName()
         self.tableView.reloadData()
         setOrganizationBarButton()
     }
     
-    @IBAction func onLogoutButtonPressed(sender: AnyObject) {
+    @IBAction func onLogoutButtonPressed(_ sender: AnyObject) {
         let yesString = "Yes"
         let alertController = UIHelpers.alertControllerWithTitle("Logout", message: "Are you sure you want to log out?", buttonTitles: [yesString]) { (selectedButtonTitle) -> Void in
             if selectedButtonTitle == yesString {
                 TTKit.sharedInstance().logout()
             }
         }
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func resetFetchedResultsController() {
-        self.inboxFetchedResultsController = ttKit.rosterFetchControllerWithDelegate(self)
-        self.navigationItem.title = ttKit.currentOrganizationName()        
+        self.inboxFetchedResultsController = ttKit?.rosterFetchController(with: self)
+        self.navigationItem.title = ttKit?.currentOrganizationName()        
     }
     
     func setOrganizationBarButton() {
@@ -66,43 +66,43 @@ class InboxViewController: UITableViewController, NSFetchedResultsControllerDele
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: self.organizationBarButtonView)
     }
     
-    func rosterEntryAtIndexPath(indexPath: NSIndexPath) -> TTRosterEntry? {
-        return self.inboxFetchedResultsController?.objectAtIndexPath(indexPath) as? TTRosterEntry
+    func rosterEntryAtIndexPath(_ indexPath: IndexPath) -> TTRosterEntry? {
+        return self.inboxFetchedResultsController?.object(at: indexPath) as? TTRosterEntry
     }
     
-    func configureCell(cell: ConversationCell!, rosterEntry: TTRosterEntry?) {
+    func configureCell(_ cell: ConversationCell!, rosterEntry: TTRosterEntry?) {
         cell.item = rosterEntry
     }
     
-    func didSelectRosterEntry(rosterEntry: TTRosterEntry, indexPath: NSIndexPath) {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let conversationViewController = appDelegate.storyboard?.instantiateViewControllerWithIdentifier("ConversationViewController") as! ConversationViewController
+    func didSelectRosterEntry(_ rosterEntry: TTRosterEntry, indexPath: IndexPath) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let conversationViewController = appDelegate.storyboard?.instantiateViewController(withIdentifier: "ConversationViewController") as! ConversationViewController
         conversationViewController.rosterEntry = rosterEntry
         self.navigationController?.pushViewController(conversationViewController, animated: true)
     }
     
     // MARK: TableViewDelegate
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        let count = self.inboxFetchedResultsController.fetchedObjects?.count
         return count!
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(conversationCellIdentifier) as! ConversationCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: conversationCellIdentifier) as! ConversationCell
         let rosterEntry = rosterEntryAtIndexPath(indexPath)
         configureCell(cell,rosterEntry: rosterEntry)
         return cell
     }
 
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return ConversationCell.cellHeight()
     }
     
     // MARK: NSFetchedResultsControllerDelegate
     
-    func controllerWillChangeContent(controller: NSFetchedResultsController) {
-        self.shouldReloadTable = !(self.isViewLoaded() && self.view.window != nil)
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.shouldReloadTable = !(self.isViewLoaded && self.view.window != nil)
         
         if (!self.shouldReloadTable) {
             self.tableView.beginUpdates()
@@ -110,7 +110,7 @@ class InboxViewController: UITableViewController, NSFetchedResultsControllerDele
         
     }
     
-    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         if (self.shouldReloadTable) {
             self.tableView.reloadData()
         } else {
@@ -118,7 +118,7 @@ class InboxViewController: UITableViewController, NSFetchedResultsControllerDele
         }
     }
     
-    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         if (self.shouldReloadTable) {
             return
         }
@@ -126,49 +126,49 @@ class InboxViewController: UITableViewController, NSFetchedResultsControllerDele
         let rosterEntry = anObject as! TTRosterEntry
         
         switch (type) {
-        case .Insert:
-            tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Automatic)
+        case .insert:
+            tableView.insertRows(at: [newIndexPath!], with: .automatic)
             
-        case .Delete:
-            self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Automatic)
+        case .delete:
+            self.tableView.deleteRows(at: [indexPath!], with: .automatic)
             
-        case .Move:
+        case .move:
             if indexPath == nil {
                 break;
             }
             
             if (indexPath?.row == newIndexPath?.row && indexPath?.section == newIndexPath?.section) {
-                let cell = tableView.cellForRowAtIndexPath(indexPath!) as? ConversationCell
+                let cell = tableView.cellForRow(at: indexPath!) as? ConversationCell
                 if cell != nil {
                     configureCell(cell, rosterEntry: rosterEntry)                    
                 }
                 break
             }
             
-            tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
-            tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
+            tableView.deleteRows(at: [indexPath!], with: .fade)
+            tableView.insertRows(at: [newIndexPath!], with: .fade)
         
-        case .Update:
-            let cell = tableView.cellForRowAtIndexPath(indexPath!) as! ConversationCell
+        case .update:
+            let cell = tableView.cellForRow(at: indexPath!) as! ConversationCell
             configureCell(cell, rosterEntry: rosterEntry)
         }
     }
     
     //MARK: OrganizationsBarButtonViewDelegate
-    func organizationBarButtonPressed(sender: OrganizationsBarButtonView!) {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let organizationsViewController = appDelegate.storyboard?.instantiateViewControllerWithIdentifier("OrganizationsViewController")
+    func organizationBarButtonPressed(_ sender: OrganizationsBarButtonView!) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let organizationsViewController = appDelegate.storyboard?.instantiateViewController(withIdentifier: "OrganizationsViewController")
         let nav = UINavigationController.init(rootViewController: organizationsViewController!)
-        self.presentViewController(nav, animated: true, completion: nil)
+        self.present(nav, animated: true, completion: nil)
     }
     
     // MARK: NSNotifications
-    @objc func currentOrganizationChanged(notification: NSNotification) {
+    @objc func currentOrganizationChanged(_ notification: Notification) {
         resetFetchedResultsController()
         self.tableView.reloadData()
     }
     
-    @objc func organizationUpdated(notification: NSNotification) {
-        self.navigationItem.title = ttKit.currentOrganizationName()
+    @objc func organizationUpdated(_ notification: Notification) {
+        self.navigationItem.title = ttKit?.currentOrganizationName()
     }
 }

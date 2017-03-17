@@ -9,20 +9,20 @@
 import Foundation
 
 protocol OrganizationsBarButtonViewDelegate {
-    func organizationBarButtonPressed(sender: OrganizationsBarButtonView!)
+    func organizationBarButtonPressed(_ sender: OrganizationsBarButtonView!)
 }
 
 class OrganizationsBarButtonView: UIView {
-    private var organizationsImageView: UIImageView!
-    private var unreadMessagesBadge: UIView!
+    fileprivate var organizationsImageView: UIImageView!
+    fileprivate var unreadMessagesBadge: UIView!
     var delegate: OrganizationsBarButtonViewDelegate?
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     class func barView() -> OrganizationsBarButtonView {
-        let view = OrganizationsBarButtonView.init(frame: CGRectMake(0, 0, 26, 25))
+        let view = OrganizationsBarButtonView.init(frame: CGRect(x: 0, y: 0, width: 26, height: 25))
         return view
     }
     
@@ -32,48 +32,48 @@ class OrganizationsBarButtonView: UIView {
     
     override init(frame:CGRect) {
         super.init(frame:frame)
-        self.organizationsImageView = UIImageView.init(frame: CGRectMake(0, 0, 22, 22))
+        self.organizationsImageView = UIImageView.init(frame: CGRect(x: 0, y: 0, width: 22, height: 22))
         self.organizationsImageView.left = 0
-        self.organizationsImageView.bottom = CGRectGetHeight(frame)
-        self.organizationsImageView.image = UIImage.init(named: "orgs")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
-        self.organizationsImageView.tintColor = UIColor.whiteColor()
+        self.organizationsImageView.bottom = frame.height
+        self.organizationsImageView.image = UIImage.init(named: "orgs")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        self.organizationsImageView.tintColor = UIColor.white
         self.addSubview(self.organizationsImageView)
         
-        self.unreadMessagesBadge = UIView.init(frame: CGRectMake(0, 0, 8, 8))
+        self.unreadMessagesBadge = UIView.init(frame: CGRect(x: 0, y: 0, width: 8, height: 8))
         self.unreadMessagesBadge.backgroundColor = UIColor.init(hex: 0xff3838)
         self.unreadMessagesBadge.cornerRadius = 4.0
-        self.unreadMessagesBadge.borderColor = UIColor.whiteColor()
+        self.unreadMessagesBadge.borderColor = UIColor.white
         self.unreadMessagesBadge.borderWidth = 1.0
-        self.unreadMessagesBadge.right = CGRectGetMaxX(frame)
+        self.unreadMessagesBadge.right = frame.maxX
         self.unreadMessagesBadge.top = 0
         self.addSubview(self.unreadMessagesBadge)
         self.refreshBadge()
         self.registerNotifications()
         
-        let overlayButton = UIButton.init(frame: CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame)))
-        overlayButton.backgroundColor = UIColor.clearColor()
-        overlayButton.addTarget(self, action: Selector("onOverlayButtonPressed"), forControlEvents: UIControlEvents.TouchUpInside)
+        let overlayButton = UIButton.init(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
+        overlayButton.backgroundColor = UIColor.clear
+        overlayButton.addTarget(self, action: #selector(OrganizationsBarButtonView.onOverlayButtonPressed), for: UIControlEvents.touchUpInside)
         self.addSubview(overlayButton)
     }
     
-    private func registerNotifications() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("refreshBadge"), name: kTTKitUnreadMessagesCountChangedNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("refreshBadge"), name: kTTKitCurrentOrganizationChangeNotification, object: nil)
+    fileprivate func registerNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(OrganizationsBarButtonView.refreshBadge), name: NSNotification.Name.ttKitUnreadMessagesCountChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(OrganizationsBarButtonView.refreshBadge), name: NSNotification.Name.ttKitCurrentOrganizationChange, object: nil)
     }
     
-    @objc private func refreshBadge() {
+    @objc fileprivate func refreshBadge() {
         var unreadCount: UInt = 0
         let currentOrgToken = TTKit.sharedInstance().currentOrganizationToken()
         if (currentOrgToken != nil) {
-            let badgeData = TTKit.sharedInstance().badgeDataForOrganizationToken(currentOrgToken)
-            unreadCount = badgeData.unreadCount
+            let badgeData = TTKit.sharedInstance().badgeData(forOrganizationToken: currentOrgToken)
+            unreadCount = (badgeData?.unreadCount)!
         }
         
         let totalUnreadCount = TTKit.sharedInstance().getTotalUnreadMessageCount()
-        if (totalUnreadCount - unreadCount) > 0 {
-            self.unreadMessagesBadge.hidden = false
+        if (UInt(totalUnreadCount - unreadCount)) > 0 {
+            self.unreadMessagesBadge.isHidden = false
         } else {
-            self.unreadMessagesBadge.hidden = true
+            self.unreadMessagesBadge.isHidden = true
         }
     }
     

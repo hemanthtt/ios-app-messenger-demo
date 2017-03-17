@@ -22,15 +22,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var storyboard: UIStoryboard?
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         setUpRunTimeEnviroment()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("refreshUnreadCount:"), name: kTTKitUnreadMessagesCountChangedNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("didLogout"), name: kTTKitWillLogoutNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("didReceiveRemoteLogoutNotification"), name: kTTKitDidReceiveRemoteLogoutNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.refreshUnreadCount(_:)), name: NSNotification.Name.ttKitUnreadMessagesCountChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.didLogout), name: NSNotification.Name.ttKitWillLogout, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.didReceiveRemoteLogoutNotification), name: NSNotification.Name.ttKitDidReceiveRemoteLogout, object: nil)
 
-        self.window = UIWindow.init(frame: UIScreen.mainScreen().bounds)
-        self.window?.backgroundColor = UIColor.whiteColor()
+        self.window = UIWindow.init(frame: UIScreen.main.bounds)
+        self.window?.backgroundColor = UIColor.white
 
         setAppearance()
         self.storyboard = UIStoryboard.init(name: "Main", bundle: nil)
@@ -45,23 +45,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setUpRunTimeEnviroment() {
-        TTKit.sharedInstance().initializeWithAgent(kTTKitAgent, environment: .Production)
+        TTKit.sharedInstance().initialize(withAgent: kTTKitAgent, environment: .production)
     }
     
     func setAppearance() {
         UINavigationBar.appearance().barTintColor = Constants.Colors.leadingColor
-        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
     }
     
     func loadUserLoggedInUI() {
-        let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("Inbox")
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Inbox")
         self.window?.rootViewController = viewController
         self.window?.makeKeyAndVisible()
     }
     
     func loadUserLoggedOutUI() {
-        let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("Login")
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Login")
         self.window?.rootViewController = viewController
         self.window?.makeKeyAndVisible()
     }
@@ -69,41 +69,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: Push Notifiations
     
     func registerForPush() {
-        let notificationType: UIUserNotificationType = [.Alert, .Badge, .Sound]
-        let notificationSettings = UIUserNotificationSettings.init(forTypes: notificationType, categories: nil)
-        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
+        let notificationType: UIUserNotificationType = [.alert, .badge, .sound]
+        let notificationSettings = UIUserNotificationSettings.init(types: notificationType, categories: nil)
+        UIApplication.shared.registerUserNotificationSettings(notificationSettings)
     }
     
-    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         NSLog("Push received = %@", userInfo)
     }
     
-    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         TTKit.sharedInstance().registerPushNotificationDataToken(deviceToken)
     }
     
-    func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
+    func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
         application.registerForRemoteNotifications()
     }
     
     // MARK: Attachments Background Upload/Download sessions
     
-    func application(application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: () -> Void) {
+    func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
         TTKit.sharedInstance().application(application, handleEventsForBackgroundURLSession: identifier, completionHandler: completionHandler)
     }
     
     // MARK: TTKit Notification Handling
     
-    @objc func refreshUnreadCount(notification: NSNotification) {
+    @objc func refreshUnreadCount(_ notification: Notification) {
         let obj = notification.object;
         if (obj != nil) {
             let totalUnreadMessagesCount = obj as! NSNumber
-            UIApplication.sharedApplication().applicationIconBadgeNumber = totalUnreadMessagesCount.integerValue
+            UIApplication.shared.applicationIconBadgeNumber = totalUnreadMessagesCount.intValue
         }
     }
 
     func didLogout() {
-        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+        UIApplication.shared.applicationIconBadgeNumber = 0
         loadUserLoggedOutUI()
     }
     
@@ -111,12 +111,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         TTKit.sharedInstance().logout()
         let alertController = UIHelpers.alertControllerWithTitle("Remote Logout", message: "You've been logged out of your account, please contact your administartor if you have any questions", completion: nil)
         let topController = UIApplication.topViewController()
-        topController?.presentViewController(alertController, animated: true, completion: nil)
+        topController?.present(alertController, animated: true, completion: nil)
     }
 }
 
 extension UIApplication {
-    class func topViewController(base: UIViewController? = UIApplication.sharedApplication().keyWindow?.rootViewController) -> UIViewController? {
+    class func topViewController(_ base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
         if let nav = base as? UINavigationController {
             return topViewController(nav.visibleViewController)
         }

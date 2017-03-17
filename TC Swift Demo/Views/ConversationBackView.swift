@@ -16,12 +16,12 @@ class ConversationBackView: UIView {
     var badgeView: BadgeView!
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
-    class func conversationBackViewWithConversaitonHash(conversationHash: String?) -> ConversationBackView! {
-        let view = ConversationBackView.init(frame: CGRectMake(0, 0, 70, 30))
-        view.conversationHash = conversationHash
+    class func conversationBackViewWithConversaitonHash(_ conversationHash: String?) -> ConversationBackView! {
+        let view = ConversationBackView.init(frame: CGRect(x: 0, y: 0, width: 70, height: 30))
+        view.conversationHash = conversationHash as NSString?
         view.refreshBadge()
         view.registerNotifications()
         return view
@@ -33,48 +33,48 @@ class ConversationBackView: UIView {
     
     override init(frame:CGRect) {
         super.init(frame:frame)
-        self.backArrowImageView = UIImageView.init(frame: CGRectMake(0, 0, 8*1.2, 14*1.2))
+        self.backArrowImageView = UIImageView.init(frame: CGRect(x: 0, y: 0, width: 8*1.2, height: 14*1.2))
         self.backArrowImageView.left = 10
-        self.backArrowImageView.centerY = CGRectGetMidY(frame)
-        self.backArrowImageView.backgroundColor = UIColor.clearColor()
-        self.backArrowImageView.image = UIImage.init(named: "back-arrow")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
-        self.backArrowImageView.tintColor = UIColor.whiteColor()
+        self.backArrowImageView.centerY = frame.midY
+        self.backArrowImageView.backgroundColor = UIColor.clear
+        self.backArrowImageView.image = UIImage.init(named: "back-arrow")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        self.backArrowImageView.tintColor = UIColor.white
         self.addSubview(self.backArrowImageView)
         
-        self.badgeView = BadgeView.init(frame: CGRectMake(0, 0, 18, 18))
+        self.badgeView = BadgeView.init(frame: CGRect(x: 0, y: 0, width: 18, height: 18))
         self.badgeView.left = self.backArrowImageView.right + 5
         self.badgeView.centerY = self.backArrowImageView.centerY
         self.addSubview(self.badgeView)
         
-        let overlayButton = UIButton.init(frame: CGRectMake(0, 0, self.width, self.height))
-        overlayButton.backgroundColor = UIColor.clearColor()
-        overlayButton.addTarget(self, action: Selector("onOverlayButtonPressed:"), forControlEvents: UIControlEvents.TouchDragInside)
+        let overlayButton = UIButton.init(frame: CGRect(x: 0, y: 0, width: self.width, height: self.height))
+        overlayButton.backgroundColor = UIColor.clear
+        overlayButton.addTarget(self, action: Selector("onOverlayButtonPressed:"), for: UIControlEvents.touchDragInside)
         self.addSubview(overlayButton)
     }
     
-    private func registerNotifications() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("refreshBadge"), name: kTTKitUnreadMessagesCountChangedNotification, object: nil)
+    fileprivate func registerNotifications() {
+        NotificationCenter.default.addObserver(self, selector: Selector("refreshBadge"), name: NSNotification.Name.ttKitUnreadMessagesCountChanged, object: nil)
     }
     
-    private func refreshBadge() {
+    fileprivate func refreshBadge() {
         var organizationUnreadCount: UInt = 0
         let currentOrgToken = TTKit.sharedInstance().currentOrganizationToken()
         if (currentOrgToken != nil) {
-            let badgeData = TTKit.sharedInstance().badgeDataForOrganizationToken(currentOrgToken)
-            organizationUnreadCount = badgeData.unreadCount
+            let badgeData = TTKit.sharedInstance().badgeData(forOrganizationToken: currentOrgToken)
+            organizationUnreadCount = (badgeData?.unreadCount)!
         }
         
         var unreadForConversationHash: UInt = 0
         if (self.conversationHash != nil) {
-            unreadForConversationHash = TTKit.sharedInstance().badgeDataForConversationHash(self.conversationHash as String!).unreadCount
+            unreadForConversationHash = TTKit.sharedInstance().badgeData(forConversationHash: self.conversationHash as String!).unreadCount
         }
         
         let unreadCountToDisplay = organizationUnreadCount - unreadForConversationHash
         if unreadCountToDisplay > 0 {
-            self.badgeView.hidden = false
+            self.badgeView.isHidden = false
             self.badgeView.setBadgeCount(Int(unreadCountToDisplay))
         } else {
-            self.badgeView.hidden = true
+            self.badgeView.isHidden = true
             
         }
     }
@@ -84,8 +84,8 @@ class ConversationBackView: UIView {
         self.badgeView.setNeedsLayout()
     }
     
-    private func onOverlayButtonPressed(sender: AnyObject) {
+    fileprivate func onOverlayButtonPressed(_ sender: AnyObject) {
         let nav = self.firstAvailableViewController() as! UINavigationController
-        nav.popViewControllerAnimated(true)
+        nav.popViewController(animated: true)
     }
 }

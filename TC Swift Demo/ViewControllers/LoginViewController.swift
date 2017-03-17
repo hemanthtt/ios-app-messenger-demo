@@ -13,9 +13,9 @@ class LoginViewController: UIViewController {
     var ttKit = TTKit.sharedInstance()
 
     enum LoginState: Int {
-        case Default = 0
-        case InProgress = 1
-        case Authenticated = 2
+        case `default` = 0
+        case inProgress = 1
+        case authenticated = 2
     }
     
     // Use this constants to perform a fast login
@@ -28,21 +28,21 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    func setLoginState(loginState: LoginState) {
+    func setLoginState(_ loginState: LoginState) {
         switch loginState {
-        case .Default:
+        case .default:
             activityIndicator.stopAnimating()
-            loginButton.hidden = false
+            loginButton.isHidden = false
             break
             
-        case .InProgress:
+        case .inProgress:
             activityIndicator.startAnimating()
-            loginButton.hidden = true
+            loginButton.isHidden = true
             break
             
-        case .Authenticated:
+        case .authenticated:
             activityIndicator.startAnimating()
-            loginButton.hidden = true
+            loginButton.isHidden = true
             break
         }
     }
@@ -51,42 +51,39 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = "Log In"
-        setLoginState(.Default)
+        setLoginState(.default)
         emailTextField.text = yourLoginUsername
         passwordTextField.text = yourLoginPassword
         loginButton.backgroundColor = Constants.Colors.leadingColor
     }
     
-    @IBAction func onLoginButtonPressed(sender: AnyObject) {
+    @IBAction func onLoginButtonPressed(_ sender: AnyObject) {
         
         if emailTextField.text!.isEmpty {
             let alertController = UIHelpers.alertControllerWithTitle("Error", message: "Please enter an email", completion: nil)
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.present(alertController, animated: true, completion: nil)
             return;
         }
         
         if passwordTextField.text!.isEmpty {
             let alertController = UIHelpers.alertControllerWithTitle("Error", message: "Please enter a password", completion: nil)
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.present(alertController, animated: true, completion: nil)
             return;
         }
         
-        self.setLoginState(.InProgress)
+        self.setLoginState(.inProgress)
         
-        ttKit.loginWithUserId(emailTextField.text, password: passwordTextField.text, success: { (user: TTUser?) -> Void in
-            self.setLoginState(.Authenticated)
+        ttKit?.login(withUserId: emailTextField.text, password: passwordTextField.text, success: { (user : TTUser?) -> Void in
+            self.setLoginState(.authenticated)
             
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(0.0 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
-                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(0.0 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) {
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
                 appDelegate.loadUserLoggedInUI()
             }
-            
-            }) { (error: NSError?) -> Void in
-                let alertController = UIHelpers.alertControllerWithTitle("Error", message: (error?.localizedDescription)!, completion: nil)
-                self.presentViewController(alertController, animated: true, completion: nil)
-                self.setLoginState(.Default)
-        }
-        
+        }, failure: {(error: Error?) -> Swift.Void in
+            let alertController = UIHelpers.alertControllerWithTitle("Error", message: (error?.localizedDescription)!, completion: nil)
+            self.present(alertController, animated: true, completion: nil)
+            self.setLoginState(.default)
+        })
     }
-    
 }

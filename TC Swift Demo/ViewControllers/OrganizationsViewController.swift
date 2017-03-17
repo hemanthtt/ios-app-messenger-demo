@@ -11,50 +11,52 @@ import Foundation
 class OrganizationsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    var resultsController: NSFetchedResultsController!
+    var resultsController: NSFetchedResultsController<NSFetchRequestResult>!
     
-    @IBAction func onCloseButton(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func onCloseButton(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
     
+    let organizationsCellIdentifier = "OrganizationCell"
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.resultsController = TTKit.sharedInstance().organizationsFetchControllerWithDelegate(self)
-        self.tableView.registerNib(UINib.init(nibName: String(OrganizationCell), bundle: nil), forCellReuseIdentifier: String(OrganizationCell))
-        self.tableView.tableFooterView = UIView.init(frame: CGRectZero)
+        self.resultsController = TTKit.sharedInstance().organizationsFetchController(with: self)
+        self.tableView.register(UINib(nibName: organizationsCellIdentifier, bundle: nil), forCellReuseIdentifier: organizationsCellIdentifier)
+        self.tableView.tableFooterView = UIView.init(frame: CGRect.zero)
         self.tableView.reloadData()
     }
     
-    func configureCell(cell: OrganizationCell, indexPath: NSIndexPath) {
-        let organization = self.resultsController.objectAtIndexPath(indexPath)
+    func configureCell(_ cell: OrganizationCell, indexPath: IndexPath) {
+        let organization = self.resultsController.object(at: indexPath)
         cell.item = organization as? TTOrganization
     }
     
     //MARK: UITableViewDataSource
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let count = self.resultsController.fetchedObjects?.count
         return count!
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return OrganizationCell.cellHeight()
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(String(OrganizationCell)) as! OrganizationCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: organizationsCellIdentifier)) as! OrganizationCell
         self.configureCell(cell, indexPath: indexPath)
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let organization = self.resultsController.objectAtIndexPath(indexPath) as? TTOrganization
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let organization = self.resultsController.object(at: indexPath) as? TTOrganization
         TTKit.sharedInstance().setCurrentOrganization(organization)
         self.onCloseButton(self)
     }
     
     //MARK: NSFetchedResultsControllerDelegate
-    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.tableView.reloadData()
     }
 }

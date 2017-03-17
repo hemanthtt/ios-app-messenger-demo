@@ -7,6 +7,30 @@
 //
 
 import Foundation
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class OrganizationCell: UITableViewCell {
 
@@ -32,14 +56,14 @@ class OrganizationCell: UITableViewCell {
             let textColor: UIColor!
             if item?.token == TTKit.sharedInstance().currentOrganizationToken() {
                 font = Constants.Fonts.mediumFont(self.organizationNameLabel.font.pointSize)
-                textColor = UIColor.blackColor()
+                textColor = UIColor.black
                 self.backgroundColor = UIColor.init(hex: 0xFDEBA9)
-                self.selectedIndicatorView.hidden = false
+                self.selectedIndicatorView.isHidden = false
             } else {
                 font = Constants.Fonts.regularFont(self.organizationNameLabel.font.pointSize)
                 textColor = Constants.Colors.defaultGrayColor
-                self.backgroundColor = UIColor.whiteColor()
-                self.selectedIndicatorView.hidden = true
+                self.backgroundColor = UIColor.white
+                self.selectedIndicatorView.isHidden = true
             }
             self.setUnreadBadge()
             self.organizationNameLabel.font = font
@@ -47,21 +71,21 @@ class OrganizationCell: UITableViewCell {
         }
     }
     
-    private func setUnreadBadge() {
-        self.badgeData = TTKit.sharedInstance().badgeDataForOrganizationToken(item?.token)
+    fileprivate func setUnreadBadge() {
+        self.badgeData = TTKit.sharedInstance().badgeData(forOrganizationToken: item?.token)
         self.updateUnreadCount(self.badgeData?.unreadCount)
         
     }
     
-    private func updateUnreadCount(unreadMessagesCountForConversation: UInt?) {
+    fileprivate func updateUnreadCount(_ unreadMessagesCountForConversation: UInt?) {
         if unreadMessagesCountForConversation > 0 {
-            self.unreadBadgeView.hidden = false
+            self.unreadBadgeView.isHidden = false
             self.unreadBadgeCountLabel.text = String.init(format: "%ld", unreadMessagesCountForConversation!)
         } else {
-            self.unreadBadgeView.hidden = true
+            self.unreadBadgeView.isHidden = true
             self.unreadBadgeCountLabel.text = ""
         }
-        self.unreadBadgeView.cornerRadius = max(CGRectGetHeight(self.unreadBadgeView.frame), 19)/2
+        self.unreadBadgeView.cornerRadius = max(self.unreadBadgeView.frame.height, 19)/2
         self.contentView.setNeedsLayout()
         self.contentView.layoutIfNeeded()
     }
@@ -70,13 +94,13 @@ class OrganizationCell: UITableViewCell {
         super.layoutSubviews()
         self.unreadBadgeView.setNeedsLayout()
         self.unreadBadgeView.layoutIfNeeded()
-        self.unreadBadgeView.cornerRadius = max(CGRectGetHeight(self.unreadBadgeView.frame), 19)/2
+        self.unreadBadgeView.cornerRadius = max(self.unreadBadgeView.frame.height, 19)/2
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         self.badgeData?.prepareForReuse()
-        self.unreadBadgeView.hidden = true
+        self.unreadBadgeView.isHidden = true
         self.unreadBadgeCountLabel.text = ""
     }
 }
